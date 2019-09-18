@@ -18,4 +18,8 @@ h1 {
   &.horizontally-centered {
     align-items: center;
   }
+
+  &.vertically-space-between {
+    justify-content: space-between;
+  }
 }
