@@ -1,23 +1,6 @@
-h1,
-p {
-  display: block;
-}
-
-h1 {
-  font-size: 2em;
-  font-weight: bold;
-}
-
-.container {
-  display: flex;
-}
-
 .column {
+  display: flex;
   flex-direction: column;
-
-  &.horizontally-centered {
-    align-items: center;
-  }
 
   &.vertically-space-between {
     justify-content: space-between;
