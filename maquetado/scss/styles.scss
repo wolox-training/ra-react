@@ -1,8 +1,26 @@
+.all-screen {
+  height: 100vh;
+  width: 100vw;
+}
+
 .column {
   display: flex;
   flex-direction: column;
 
   &.vertically-space-between {
     justify-content: space-between;
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+
+  &.horizontally-to-end {
+    justify-content: flex-end;
   }
 }
