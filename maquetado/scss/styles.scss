@@ -3,6 +3,10 @@
   width: 100vw;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 .column {
   display: flex;
   flex-direction: column;
@@ -10,6 +14,10 @@
   &.vertically-space-between {
     justify-content: space-between;
   }
+}
+
+.element-to-end {
+  align-self: flex-end;
 }
 
 .full-width {
