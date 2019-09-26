@@ -6,12 +6,12 @@
 }
 
 .book-details {
-  max-width: 640px;
-  width: 100%;
+  flex-grow: 2;
 }
 
 .content {
-  max-width: 1366px;
+  max-width: 1000px;
+  padding: 0 20px;
   width: 100%;
 }
 
@@ -36,5 +36,9 @@
 
 .title {
   font-size: 32px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+}
+
+.very-spaced-top {
+  padding-top: 176px;
 }
