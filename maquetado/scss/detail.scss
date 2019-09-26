@@ -11,6 +11,10 @@
   flex-grow: 1;
 }
 
+.border-bottom-earls-green {
+  border-bottom: 4px solid $earls-green;
+}
+
 .content {
   box-shadow: 4px 4px 10px 0 $lighten-darken;
   max-width: 1000px;
@@ -28,11 +32,6 @@
   font-size: 19px;
 }
 
-.rectangle {
-  max-height: 4px;
-  height: 100%;
-}
-
 .spaced-top {
   padding-top: 25px;
 }
@@ -40,6 +39,7 @@
 .title {
   font-size: 32px;
   margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 .very-spaced-top {
