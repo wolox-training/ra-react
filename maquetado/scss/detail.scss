@@ -1,9 +1,8 @@
 .book-cover {
+  height: 368px;
   margin-right: 40px;
-  max-height: 368px;
-  max-width: 261px;
-  height: 100%;
-  width: 100%;
+  object-fit: cover;
+  width: 261px;
 }
 
 .content {
