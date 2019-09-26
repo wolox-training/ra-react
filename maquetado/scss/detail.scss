@@ -1,3 +1,5 @@
+@import 'colors';
+
 .book-cover {
   height: 368px;
   margin-right: 40px;
@@ -5,8 +7,18 @@
   width: 261px;
 }
 
+.book-details {
+  flex-grow: 1;
+}
+
+.border-bottom-earls-green {
+  border-bottom: 4px solid $earls-green;
+}
+
 .content {
-  max-width: 1366px;
+  box-shadow: 4px 4px 10px 0 $lighten-darken;
+  max-width: 1000px;
+  padding: 0 20px;
   width: 100%;
 }
 
@@ -26,5 +38,10 @@
 
 .title {
   font-size: 32px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.very-spaced-top {
+  padding-top: 176px;
 }

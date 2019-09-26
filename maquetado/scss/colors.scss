@@ -1,3 +1,17 @@
+$earls-green: #BED23C;
+$gray: #808080;
+$lighten-darken: rgba(0,0,0,0.5);
+$wild-sand: #F4F4F4;
+$white: #FFF;
+
 .gray {
-  color: #808080;
+  color: $gray;
+}
+
+.background-wild-sand {
+  background-color: $wild-sand;
+}
+
+.background-white {
+  background-color: $white;
 }
