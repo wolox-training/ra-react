@@ -1,3 +1,15 @@
+.book-cover {
+  height: 368px;
+  margin-right: 40px;
+  object-fit: cover;
+  width: 261px;
+}
+
+.content {
+  max-width: 1366px;
+  width: 100%;
+}
+
 .field {
   font-size: 19px;
   margin-bottom: 25px;
@@ -6,11 +18,6 @@
 
 .field-description {
   font-size: 19px;
-}
-
-.content {
-  width: 100%;
-  max-width: 1366px;
 }
 
 .spaced-top {
