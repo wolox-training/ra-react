@@ -1,5 +1,14 @@
 @import 'colors';
 
+.badge {
+  height: 118.57px;
+  position: absolute;
+  right: 15px;
+  top: -15px;
+  transform: rotate(15deg);
+  width: 94.53px;
+}
+
 .book-cover {
   height: 368px;
   margin-right: 40px;
