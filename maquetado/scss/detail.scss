@@ -1,7 +1,7 @@
 @import 'colors';
 
 .badge {
-  height: 118px;
+  object-fit: cover;
   position: absolute;
   right: 15px;
   top: -15px;
@@ -10,7 +10,6 @@
 }
 
 .book-cover {
-  height: 368px;
   margin-right: 40px;
   object-fit: cover;
   width: 261px;
