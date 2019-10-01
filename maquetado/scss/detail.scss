@@ -46,6 +46,10 @@
   border-bottom: 4px solid $earls-green;
 }
 
+.border-top-cerulean {
+  border-top: 4px solid $cerulean;
+}
+
 .field {
   font-size: 19px;
   margin-bottom: 25px;
@@ -64,8 +68,16 @@
   margin-top: 10px;
 }
 
+.logout {
+  margin-left: auto;
+}
+
 .margin-spaced-top {
   margin-top: 40px;
+}
+
+.mid-spaced-top {
+  padding-top: 100px;
 }
 
 .separated-right {
@@ -88,4 +100,9 @@
 
 .very-spaced-top {
   padding-top: 176px;
+}
+
+.wolox-logo-image {
+  max-width: 212px;
+  width: 100%;
 }
