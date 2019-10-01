@@ -9,7 +9,6 @@
 }
 
 .book-cover {
-  box-shadow: 4px 4px 10px 0 $lighten-darken;
   flex-grow: 1;
   height: 100%;
   justify-content: center;
@@ -38,7 +37,6 @@
 }
 
 .book-information-content {
-  box-shadow: 4px 4px 10px 0 $lighten-darken;
   max-width: 1000px;
   padding: 0 20px;
   width: 100%;
