@@ -1,4 +1,6 @@
 @import 'colors';
+@import 'zindex';
+
 $navbar-height: 70px;
 
 .all-screen {
@@ -42,7 +44,7 @@ $navbar-height: 70px;
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 999;
+  z-index: map-get($zindex, navbar);
 }
 
 .navbar-padding-top {
