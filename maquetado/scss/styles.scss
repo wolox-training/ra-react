@@ -37,11 +37,11 @@
 .navbar {
   height: 100%;
   max-height: 70px;
-  overflow: hidden;
   padding: 0 155px;
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 999;
 }
 
 .position-relative {
