@@ -1,5 +1,7 @@
 @import 'colors';
 
+$book-cover-content-width: 935px;
+
 .badge {
   position: absolute;
   right: 15px;
@@ -19,7 +21,7 @@
 .book-cover-content {
   align-content: flex-start;
   flex-wrap: wrap;
-  max-width: 935px;
+  max-width: $book-cover-content-width;
   width: 100%;
 }
 
@@ -74,6 +76,11 @@
 
 .margin-spaced-top {
   margin-top: 40px;
+}
+
+.navbar-components {
+  max-width: $book-cover-content-width;
+  width: 100%;
 }
 
 .separated-right {
