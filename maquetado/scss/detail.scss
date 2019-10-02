@@ -1,5 +1,7 @@
 @import 'colors';
 
+$book-cover-content-width: 935px;
+
 .badge {
   position: absolute;
   right: 15px;
@@ -19,7 +21,7 @@
 .book-cover-content {
   align-content: flex-start;
   flex-wrap: wrap;
-  max-width: 935px;
+  max-width: $book-cover-content-width;
   width: 100%;
 }
 
@@ -46,6 +48,10 @@
   border-bottom: 4px solid $earls-green;
 }
 
+.border-top-cerulean {
+  border-top: 6px solid $cerulean;
+}
+
 .field {
   font-size: 19px;
   margin-bottom: 25px;
@@ -64,8 +70,17 @@
   margin-top: 10px;
 }
 
+.logout {
+  margin-left: auto;
+}
+
 .margin-spaced-top {
   margin-top: 40px;
+}
+
+.navbar-components {
+  max-width: $book-cover-content-width;
+  width: 100%;
 }
 
 .separated-right {
@@ -88,4 +103,8 @@
 
 .very-spaced-top {
   padding-top: 176px;
+}
+
+.wolox-logo-image {
+  width: 212px;
 }
