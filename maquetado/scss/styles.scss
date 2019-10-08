@@ -27,6 +27,10 @@ $navbar-height: 70px;
   &.vertically-space-between {
     justify-content: space-between;
   }
+
+  &.horizontally-center {
+    align-items: center;
+  }
 }
 
 .element-to-end {
