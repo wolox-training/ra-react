@@ -14,11 +14,6 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
   }
 }
 
-.back-width {
-  max-width: $book-cover-content-width;
-  width: 100%;
-}
-
 .badge {
   position: absolute;
   right: 15px;
@@ -38,8 +33,6 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
 .book-cover-content {
   align-content: flex-start;
   flex-wrap: wrap;
-  max-width: $book-cover-content-width;
-  width: 100%;
 }
 
 .book-cover-image {
@@ -67,6 +60,11 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
 
 .border-top-cerulean {
   border-top: 6px solid $cerulean;
+}
+
+.content-width {
+  max-width: $book-cover-content-width;
+  width: 100%;
 }
 
 .field {
