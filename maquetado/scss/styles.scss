@@ -41,6 +41,12 @@ $navbar-height: 70px;
   width: 100%;
 }
 
+.input-text {
+  border-radius: 5px;
+  background-color: $white;
+  height: 32px;
+}
+
 .navbar {
   height: 100%;
   max-height: $navbar-height;

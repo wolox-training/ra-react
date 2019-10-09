@@ -5,14 +5,18 @@ $lighten-darken: rgba(0,0,0,0.5);
 $wild-sand: #F4F4F4;
 $white: #FFF;
 
-.gray {
-  color: $gray;
-}
-
 .background-wild-sand {
   background-color: $wild-sand;
 }
 
 .background-white {
   background-color: $white;
+}
+
+.gray {
+  color: $gray;
+}
+
+.white {
+  color: $white;
 }

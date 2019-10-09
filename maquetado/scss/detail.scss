@@ -85,7 +85,14 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
   margin-top: 10px;
 }
 
+.login-button {
+  background-color: $earls-green;
+  border-radius: 5px;
+  height: 32px;
+}
+
 .login-content {
+  border-top: 8px solid $cerulean; 
   max-width: 300px;
   width: 100%;
 }
@@ -113,6 +120,14 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
 
 .separated-right {
   margin-right: 40px;
+}
+
+.sign-up-button {
+  background-color: $wild-sand;
+  border-radius: 5px;
+  border: 2px solid $earls-green;
+  color: $earls-green;
+  height: 32px;
 }
 
 .spaced-top {
