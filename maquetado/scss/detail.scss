@@ -98,7 +98,12 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
 .login-content {
   border-top: 8px solid $cerulean; 
   max-width: 300px;
+  padding: 24px;
   width: 100%;
+}
+
+.login-elements-margin {
+  margin-top: 16px;
 }
 
 .logout {
@@ -120,6 +125,10 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
 
 .padding-top-for-book {
   padding-top: $body-padding-top-for-book;
+}
+
+.rectangle {
+  height: 2px;
 }
 
 .separated-right {
