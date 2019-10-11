@@ -32,13 +32,26 @@ $navbar-height: 70px;
     align-items: center;
   }
 }
+.element-to-center {
+  align-self: center;
+}
 
 .element-to-end {
   align-self: flex-end;
 }
 
+.full-height {
+  height: 100%;
+}
+
 .full-width {
   width: 100%;
+}
+
+.input-text {
+  border-radius: 5px;
+  background-color: $white;
+  height: 32px;
 }
 
 .navbar {
@@ -73,4 +86,8 @@ $navbar-height: 70px;
   &.vertically-center {
     align-items: center;
   }
+}
+
+.separated-border-bottom {
+  padding-bottom: 16px;
 }

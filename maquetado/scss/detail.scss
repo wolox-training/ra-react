@@ -4,6 +4,11 @@ $book-cover-content-width: 935px;
 $body-padding-top-for-back: 40px;
 $body-padding-top-for-book: 200px - $body-padding-top-for-back;
 
+@mixin button {
+  border-radius: 5px;
+  height: 32px;
+}
+
 .back {
   display: flex;
   font-size: 20px;
@@ -58,6 +63,10 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
   border-bottom: 4px solid $earls-green;
 }
 
+.border-bottom-silver-chalice {
+  border-bottom: 2px solid $silver-chalice;
+}
+
 .border-top-cerulean {
   border-top: 6px solid $cerulean;
 }
@@ -85,6 +94,22 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
   margin-top: 10px;
 }
 
+.login-button {
+  @include button;
+  background-color: $earls-green;
+}
+
+.login-content {
+  border-top: 8px solid $cerulean; 
+  max-width: 300px;
+  padding: 24px;
+  width: 100%;
+}
+
+.login-elements-margin {
+  margin-top: 16px;
+}
+
 .logout {
   margin-left: auto;
 }
@@ -106,8 +131,18 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
   padding-top: $body-padding-top-for-book;
 }
 
+.rectangle {
+  height: 2px;
+}
+
 .separated-right {
   margin-right: 40px;
+}
+
+.sign-up-button {
+  @include button;
+  background-color: $wild-sand;
+  border: 2px solid $earls-green;
 }
 
 .spaced-top {
