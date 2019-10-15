@@ -2,7 +2,7 @@
 
 $body-padding-top-for-back: 40px;
 $body-padding-top-for-book: 200px;
-$breakpoint-desktop: 1024px;
+$breakpoint-desktop: 500px;
 $login-main-component-width: 935px;
 
 @mixin button {
@@ -58,13 +58,13 @@ $login-main-component-width: 935px;
 }
 
 .book-information-content {
-  padding: 0 20px;
+  padding: 25px 20px;
 
-  // @media (max-width: $breakpoint-desktop) {
-  //   flex-direction: column;
-  //   // max-width: 336px;
-  //   padding-bottom: 43px;
-  // }
+  @media (max-width: $breakpoint-desktop) {
+    flex-direction: column;
+    max-width: 336px;
+    padding-bottom: 43px;
+  }
 }
 
 .border-bottom-earls-green {
@@ -84,19 +84,19 @@ $login-main-component-width: 935px;
   margin-bottom: 25px;
   margin-top: 25px;
 
-  // @media (max-width: $breakpoint-desktop) {
-  //   font-size: 14px;
-  //   margin-bottom: 15px;
-  //   margin-top: 15px;
-  // }
+  @media (max-width: $breakpoint-desktop) {
+    font-size: 14px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
 }
 
 .field-description {
   font-size: 19px;
 
-  // @media (max-width: $breakpoint-desktop) {
-  //   font-size: 14px;
-  // }
+  @media (max-width: $breakpoint-desktop) {
+    font-size: 14px;
+  }
 }
 
 .field-description-little {
@@ -109,9 +109,9 @@ $login-main-component-width: 935px;
   padding-top: $body-padding-top-for-back;
   width: 100%;
   
-  // @media (max-width: $breakpoint-desktop) {
-  //   padding-top: 0px;
-  // }
+  @media (max-width: $breakpoint-desktop) {
+    padding-top: 0px;
+  }
 }
 
 .little-spaced-top {
@@ -150,9 +150,9 @@ $login-main-component-width: 935px;
 .padding-top-for-book {
   padding-top: $body-padding-top-for-book;
   
-  // @media (max-width: $breakpoint-desktop) {
-  //   padding-top: 0px;
-  // }
+  @media (max-width: $breakpoint-desktop) {
+    padding-top: 0px;
+  }
 }
 
 .separated-right {
@@ -165,10 +165,6 @@ $login-main-component-width: 935px;
   border: 2px solid $earls-green;
 }
 
-.spaced-top {
-  padding-top: 25px;
-}
-
 .subtitle {
   font-size: 16px;
 }
@@ -178,11 +174,11 @@ $login-main-component-width: 935px;
   margin-bottom: 20px;
   padding-bottom: 20px;
 
-  // @media (max-width: $breakpoint-desktop) {
-  //   font-size: 24px;
-  //   margin-bottom: 10px;
-  //   padding-bottom: 10px;
-  // }
+  @media (max-width: $breakpoint-desktop) {
+    font-size: 24px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
 }
 
 .wolox-logo-image {
