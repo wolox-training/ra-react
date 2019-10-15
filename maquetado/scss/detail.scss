@@ -1,8 +1,9 @@
 @import 'colors';
 
+$badge-width: 94;
 $body-padding-top-for-back: 40px;
 $body-padding-top-for-book: 200px;
-$breakpoint-desktop: 500px;
+$breakpoint-desktop: 1024px;
 $login-main-component-width: 935px;
 
 @mixin button {
@@ -19,6 +20,12 @@ $login-main-component-width: 935px;
     content: url(./images/back-arrow.png);
     margin-right: 15px;
   }
+
+  @media (max-width: $breakpoint-desktop) {
+    align-self: center;
+    margin-top: 25px;
+    order: 2;
+  }
 }
 
 .badge {
@@ -26,7 +33,11 @@ $login-main-component-width: 935px;
   right: 15px;
   top: -15px;
   transform: rotate(15deg);
-  width: 94px;
+  width: #{$badge-width}px;
+
+  @media (max-width: $breakpoint-desktop) {
+    width: calc((#{$badge-width}px * 70) / 100);
+  }
 }
 
 .book-cover {
@@ -47,6 +58,10 @@ $login-main-component-width: 935px;
 .book-cover-image {
   margin-right: 40px;
   width: 261px;
+
+  @media (max-width: $breakpoint-desktop) {
+    margin-right: 0px;
+  }
 }
 
 .book-cover-image-little {
@@ -62,7 +77,6 @@ $login-main-component-width: 935px;
 
   @media (max-width: $breakpoint-desktop) {
     flex-direction: column;
-    max-width: 336px;
     padding-bottom: 43px;
   }
 }
@@ -110,7 +124,7 @@ $login-main-component-width: 935px;
   width: 100%;
   
   @media (max-width: $breakpoint-desktop) {
-    padding-top: 0px;
+    max-width: 376px;
   }
 }
 
@@ -177,6 +191,7 @@ $login-main-component-width: 935px;
   @media (max-width: $breakpoint-desktop) {
     font-size: 24px;
     margin-bottom: 10px;
+    margin-top: 30px;
     padding-bottom: 10px;
   }
 }
