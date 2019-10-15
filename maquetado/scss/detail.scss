@@ -1,8 +1,9 @@
 @import 'colors';
 
-$book-cover-content-width: 935px;
 $body-padding-top-for-back: 40px;
-$body-padding-top-for-book: 200px - $body-padding-top-for-back;
+$body-padding-top-for-book: 200px;
+$breakpoint-desktop: 1024px;
+$login-main-component-width: 935px;
 
 @mixin button {
   border-radius: 5px;
@@ -12,6 +13,7 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
 .back {
   display: flex;
   font-size: 20px;
+  margin-bottom: $body-padding-top-for-book - $body-padding-top-for-back;
 
   &:before {
     content: url(./images/back-arrow.png);
@@ -38,6 +40,8 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
 .book-cover-content {
   align-content: flex-start;
   flex-wrap: wrap;
+  max-width: $login-main-component-width;
+  width: 100%;
 }
 
 .book-cover-image {
@@ -54,9 +58,13 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
 }
 
 .book-information-content {
-  max-width: 1000px;
   padding: 0 20px;
-  width: 100%;
+
+  // @media (max-width: $breakpoint-desktop) {
+  //   flex-direction: column;
+  //   // max-width: 336px;
+  //   padding-bottom: 43px;
+  // }
 }
 
 .border-bottom-earls-green {
@@ -71,23 +79,39 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
   border-top: 6px solid $cerulean;
 }
 
-.content-width {
-  max-width: $book-cover-content-width;
-  width: 100%;
-}
-
 .field {
   font-size: 19px;
   margin-bottom: 25px;
   margin-top: 25px;
+
+  // @media (max-width: $breakpoint-desktop) {
+  //   font-size: 14px;
+  //   margin-bottom: 15px;
+  //   margin-top: 15px;
+  // }
 }
 
 .field-description {
   font-size: 19px;
+
+  // @media (max-width: $breakpoint-desktop) {
+  //   font-size: 14px;
+  // }
 }
 
 .field-description-little {
   font-size: 14px;
+}
+
+.index-main-component {
+  margin: auto;
+  max-width: 1000px;
+  padding-top: $body-padding-top-for-back;
+  width: 100%;
+  
+  // @media (max-width: $breakpoint-desktop) {
+  //   padding-top: 0px;
+  // }
 }
 
 .little-spaced-top {
@@ -119,20 +143,16 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
 }
 
 .navbar-components {
-  max-width: $book-cover-content-width;
+  max-width: $login-main-component-width;
   width: 100%;
-}
-
-.padding-top-for-back {
-  padding-top: $body-padding-top-for-back;
 }
 
 .padding-top-for-book {
   padding-top: $body-padding-top-for-book;
-}
-
-.rectangle {
-  height: 2px;
+  
+  // @media (max-width: $breakpoint-desktop) {
+  //   padding-top: 0px;
+  // }
 }
 
 .separated-right {
@@ -157,6 +177,12 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
   font-size: 32px;
   margin-bottom: 20px;
   padding-bottom: 20px;
+
+  // @media (max-width: $breakpoint-desktop) {
+  //   font-size: 24px;
+  //   margin-bottom: 10px;
+  //   padding-bottom: 10px;
+  // }
 }
 
 .wolox-logo-image {
