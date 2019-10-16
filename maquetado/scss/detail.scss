@@ -46,6 +46,10 @@ $login-main-component-width: 935px;
   justify-content: center;
   max-height: 300px;
   padding-left: 30px;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .book-cover-content {
