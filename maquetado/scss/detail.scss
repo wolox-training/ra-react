@@ -1,8 +1,10 @@
 @import 'colors';
 
-$book-cover-content-width: 935px;
+$badge-width: 94px;
 $body-padding-top-for-back: 40px;
-$body-padding-top-for-book: 200px - $body-padding-top-for-back;
+$body-padding-top-for-book: 200px;
+$breakpoint-desktop: 1024px;
+$login-main-component-width: 935px;
 
 @mixin button {
   border-radius: 5px;
@@ -12,6 +14,7 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
 .back {
   display: flex;
   font-size: 20px;
+  margin-bottom: $body-padding-top-for-book - $body-padding-top-for-back;
 
   &:before {
     content: url(./images/back-arrow.png);
@@ -24,7 +27,7 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
   right: 15px;
   top: -15px;
   transform: rotate(15deg);
-  width: 94px;
+  width: $badge-width;
 }
 
 .book-cover {
@@ -38,6 +41,8 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
 .book-cover-content {
   align-content: flex-start;
   flex-wrap: wrap;
+  max-width: $login-main-component-width;
+  width: 100%;
 }
 
 .book-cover-image {
@@ -54,9 +59,7 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
 }
 
 .book-information-content {
-  max-width: 1000px;
-  padding: 0 20px;
-  width: 100%;
+  padding: 25px 20px;
 }
 
 .border-bottom-earls-green {
@@ -71,11 +74,6 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
   border-top: 6px solid $cerulean;
 }
 
-.content-width {
-  max-width: $book-cover-content-width;
-  width: 100%;
-}
-
 .field {
   font-size: 19px;
   margin-bottom: 25px;
@@ -88,6 +86,13 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
 
 .field-description-little {
   font-size: 14px;
+}
+
+.index-main-component {
+  margin: auto;
+  max-width: 1000px;
+  padding-top: $body-padding-top-for-back;
+  width: 100%;
 }
 
 .little-spaced-top {
@@ -119,20 +124,12 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
 }
 
 .navbar-components {
-  max-width: $book-cover-content-width;
+  max-width: $login-main-component-width;
   width: 100%;
-}
-
-.padding-top-for-back {
-  padding-top: $body-padding-top-for-back;
 }
 
 .padding-top-for-book {
   padding-top: $body-padding-top-for-book;
-}
-
-.rectangle {
-  height: 2px;
 }
 
 .separated-right {
@@ -143,10 +140,6 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
   @include button;
   background-color: $wild-sand;
   border: 2px solid $earls-green;
-}
-
-.spaced-top {
-  padding-top: 25px;
 }
 
 .subtitle {
@@ -161,4 +154,50 @@ $body-padding-top-for-book: 200px - $body-padding-top-for-back;
 
 .wolox-logo-image {
   width: 212px;
+}
+
+@media (max-width: $breakpoint-desktop) {
+  .back {
+    align-self: center;
+    margin-top: 25px;
+    order: 2;
+  }
+
+  .badge {
+    width: calc(#{$badge-width} * 0.7);
+  }
+
+  .book-cover-image {
+    margin-right: 0px;
+  }
+
+  .book-information-content {
+    flex-direction: column;
+    padding-bottom: 43px;
+  }
+
+  .field {
+    font-size: 14px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+
+  .field-description {
+    font-size: 14px;
+  }
+
+  .index-main-component {
+    max-width: 376px;
+  }
+
+  .padding-top-for-book {
+    padding-top: 0px;
+  }
+
+  .title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    padding-bottom: 10px;
+  }
 }
