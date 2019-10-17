@@ -20,12 +20,6 @@ $login-main-component-width: 935px;
     content: url(./images/back-arrow.png);
     margin-right: 15px;
   }
-
-  @media (max-width: $breakpoint-desktop) {
-    align-self: center;
-    margin-top: 25px;
-    order: 2;
-  }
 }
 
 .badge {
@@ -33,11 +27,7 @@ $login-main-component-width: 935px;
   right: 15px;
   top: -15px;
   transform: rotate(15deg);
-  width: #{$badge-width}px;
-
-  @media (max-width: $breakpoint-desktop) {
-    width: calc(#{$badge-width} * 0.7);
-  }
+  width: $badge-width;
 }
 
 .book-cover {
@@ -58,10 +48,6 @@ $login-main-component-width: 935px;
 .book-cover-image {
   margin-right: 40px;
   width: 261px;
-
-  @media (max-width: $breakpoint-desktop) {
-    margin-right: 0px;
-  }
 }
 
 .book-cover-image-little {
@@ -74,11 +60,6 @@ $login-main-component-width: 935px;
 
 .book-information-content {
   padding: 25px 20px;
-
-  @media (max-width: $breakpoint-desktop) {
-    flex-direction: column;
-    padding-bottom: 43px;
-  }
 }
 
 .border-bottom-earls-green {
@@ -97,20 +78,10 @@ $login-main-component-width: 935px;
   font-size: 19px;
   margin-bottom: 25px;
   margin-top: 25px;
-
-  @media (max-width: $breakpoint-desktop) {
-    font-size: 14px;
-    margin-bottom: 15px;
-    margin-top: 15px;
-  }
 }
 
 .field-description {
   font-size: 19px;
-
-  @media (max-width: $breakpoint-desktop) {
-    font-size: 14px;
-  }
 }
 
 .field-description-little {
@@ -122,10 +93,6 @@ $login-main-component-width: 935px;
   max-width: 1000px;
   padding-top: $body-padding-top-for-back;
   width: 100%;
-  
-  @media (max-width: $breakpoint-desktop) {
-    max-width: 376px;
-  }
 }
 
 .little-spaced-top {
@@ -163,10 +130,6 @@ $login-main-component-width: 935px;
 
 .padding-top-for-book {
   padding-top: $body-padding-top-for-book;
-  
-  @media (max-width: $breakpoint-desktop) {
-    padding-top: 0px;
-  }
 }
 
 .separated-right {
@@ -187,15 +150,72 @@ $login-main-component-width: 935px;
   font-size: 32px;
   margin-bottom: 20px;
   padding-bottom: 20px;
-
-  @media (max-width: $breakpoint-desktop) {
-    font-size: 24px;
-    margin-bottom: 10px;
-    margin-top: 30px;
-    padding-bottom: 10px;
-  }
 }
 
 .wolox-logo-image {
   width: 212px;
+}
+
+@media (max-width: $breakpoint-desktop) {
+  .back {
+    @media (max-width: $breakpoint-desktop) {
+      align-self: center;
+      margin-top: 25px;
+      order: 2;
+    }
+  }
+
+  .badge {
+    @media (max-width: $breakpoint-desktop) {
+      width: calc(#{$badge-width} * 0.7);
+    }
+  }
+
+  .book-cover-image {
+    @media (max-width: $breakpoint-desktop) {
+      margin-right: 0px;
+    }
+  }
+
+  .book-information-content {
+    @media (max-width: $breakpoint-desktop) {
+      flex-direction: column;
+      padding-bottom: 43px;
+    }
+  }
+
+  .field {
+    @media (max-width: $breakpoint-desktop) {
+      font-size: 14px;
+      margin-bottom: 15px;
+      margin-top: 15px;
+    }
+  }
+
+  .field-description {
+    @media (max-width: $breakpoint-desktop) {
+      font-size: 14px;
+    }
+  }
+
+  .index-main-component {
+    @media (max-width: $breakpoint-desktop) {
+      max-width: 376px;
+    }
+  }
+
+  .padding-top-for-book {
+    @media (max-width: $breakpoint-desktop) {
+      padding-top: 0px;
+    }
+  }
+
+  .title {
+    @media (max-width: $breakpoint-desktop) {
+      font-size: 24px;
+      margin-bottom: 10px;
+      margin-top: 30px;
+      padding-bottom: 10px;
+    }
+  }
 }
