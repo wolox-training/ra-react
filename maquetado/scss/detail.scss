@@ -158,64 +158,46 @@ $login-main-component-width: 935px;
 
 @media (max-width: $breakpoint-desktop) {
   .back {
-    @media (max-width: $breakpoint-desktop) {
-      align-self: center;
-      margin-top: 25px;
-      order: 2;
-    }
+    align-self: center;
+    margin-top: 25px;
+    order: 2;
   }
 
   .badge {
-    @media (max-width: $breakpoint-desktop) {
-      width: calc(#{$badge-width} * 0.7);
-    }
+    width: calc(#{$badge-width} * 0.7);
   }
 
   .book-cover-image {
-    @media (max-width: $breakpoint-desktop) {
-      margin-right: 0px;
-    }
+    margin-right: 0px;
   }
 
   .book-information-content {
-    @media (max-width: $breakpoint-desktop) {
-      flex-direction: column;
-      padding-bottom: 43px;
-    }
+    flex-direction: column;
+    padding-bottom: 43px;
   }
 
   .field {
-    @media (max-width: $breakpoint-desktop) {
-      font-size: 14px;
-      margin-bottom: 15px;
-      margin-top: 15px;
-    }
+    font-size: 14px;
+    margin-bottom: 15px;
+    margin-top: 15px;
   }
 
   .field-description {
-    @media (max-width: $breakpoint-desktop) {
-      font-size: 14px;
-    }
+    font-size: 14px;
   }
 
   .index-main-component {
-    @media (max-width: $breakpoint-desktop) {
-      max-width: 376px;
-    }
+    max-width: 376px;
   }
 
   .padding-top-for-book {
-    @media (max-width: $breakpoint-desktop) {
-      padding-top: 0px;
-    }
+    padding-top: 0px;
   }
 
   .title {
-    @media (max-width: $breakpoint-desktop) {
-      font-size: 24px;
-      margin-bottom: 10px;
-      margin-top: 30px;
-      padding-bottom: 10px;
-    }
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    padding-bottom: 10px;
   }
 }
