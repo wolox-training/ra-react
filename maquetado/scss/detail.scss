@@ -1,6 +1,6 @@
 @import 'colors';
 
-$badge-width: 94;
+$badge-width: 94px;
 $body-padding-top-for-back: 40px;
 $body-padding-top-for-book: 200px;
 $breakpoint-desktop: 1024px;
@@ -36,7 +36,7 @@ $login-main-component-width: 935px;
   width: #{$badge-width}px;
 
   @media (max-width: $breakpoint-desktop) {
-    width: calc((#{$badge-width}px * 70) / 100);
+    width: calc(#{$badge-width} * 0.7);
   }
 }
 
