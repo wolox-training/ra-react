@@ -20,12 +20,10 @@
   display: grid;
   grid-column-gap: 52px;
   grid-template-columns: $wolox-logo-image-normal-size-width auto;
-  grid-template-rows: 95px repeat(2, 60px) auto;
+  grid-template-rows: 95px auto;
   grid-template-areas:
     "images title"
-    "images author"
-    "images editorial"
-    "images publication-year";
+    "images book-information-text";
   width: 100%;
   padding: 20px;
 }
@@ -48,6 +46,11 @@
   grid-template-rows: auto;
   grid-template-areas:
     "back .";
+  width: 100%;
+}
+
+.book-text-component-grid {
+  grid-area: book-information-text;
   width: 100%;
 }
 
@@ -74,20 +77,44 @@
   font-size: 32px;
   margin-bottom: 40px;
   grid-area: title;
-}
-
-.editorial-grid {
-  grid-area: editorial;
-}
-
-.author-grid {
-  grid-area: author;
-}
-
-.publication-year-grid {
-  grid-area: publication-year;
+  border-bottom: 4px solid $earls-green;
 }
 
 .field-grid {
   font-size: 19px;
+  margin-bottom: 25px;
+}
+
+@media (max-width: $breakpoint-desktop) {
+  .index-main-component-grid {
+    grid-row-gap: 20px;
+    max-width: 853px;
+    padding-top: 46px;
+  }
+  
+  .book-component-grid {
+    grid-template-rows: 145px auto;
+    grid-template-areas:
+      ". title"
+      "images book-information-text";
+    padding: 32px 20px 56px 20px;
+  }
+
+  .book-text-component-grid {
+    justify-content: center;
+  }
+  
+  .badge-grid {
+    width: calc(#{$badge-width} * 0.7);
+  }
+  
+  .title-grid {
+    margin-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .genre-grid {
+    display: block;
+    margin-left: 65px;
+  }
 }
