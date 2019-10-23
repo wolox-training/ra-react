@@ -6,6 +6,7 @@ $body-padding-top-for-book: 200px;
 $breakpoint-desktop: 1024px;
 $login-main-component-width: 935px;
 $wolox-logo-image-normal-size-width: 261px;
+$wolox-logo-image-small-size-width: 212px;
 
 @mixin button {
   border-radius: 5px;
@@ -158,7 +159,7 @@ $wolox-logo-image-normal-size-width: 261px;
 }
 
 .wolox-logo-image {
-  width: 212px;
+  width: $wolox-logo-image-small-size-width;
 }
 
 @media (max-width: $breakpoint-desktop) {
