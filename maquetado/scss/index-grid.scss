@@ -87,7 +87,8 @@ $breakpoint-tablet: 350px;
 }
 
 .genre-grid {
-  margin-top: 8px;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .title-component-grid {
@@ -136,7 +137,6 @@ $breakpoint-tablet: 350px;
 
 @media (max-width: $breakpoint-tablet) {
   .index-main-component-grid {
-    grid-template-columns: auto;
     grid-row-gap: 20px;
     grid-template-areas: 
       "book-information"
@@ -159,7 +159,7 @@ $breakpoint-tablet: 350px;
   }
 
   .book-text-component-grid {
-    margin-top: 01px;
+    margin-top: 0px;
   }
 
   .images-component-grid {
