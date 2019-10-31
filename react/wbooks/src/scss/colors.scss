@@ -1,4 +1,5 @@
 /* stylelint-disable plugin/stylelint-no-indistinguishable-colors */
+$black: #000;
 $cerulean: #00ADEE;
 $earls-green: #BED23C;
 $gray: #808080;
@@ -17,6 +18,10 @@ $white: #FFF;
 
 .background-silver-chalice {
   background-color: $silver-chalice;
+}
+
+.black {
+  color: $black;
 }
 
 .earls-green {

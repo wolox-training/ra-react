@@ -1,0 +1,44 @@
+@import '../../../scss/colors';
+
+@import '../../../scss/components';
+
+.container {
+  border-top: 8px solid $cerulean;
+  max-width: 300px;
+  padding: 24px;
+  width: 100%;
+}
+
+.form {
+  border-bottom: 2px solid $silver-chalice;
+  padding-bottom: 15px;
+}
+
+.input {
+  border-radius: 5px;
+  height: 28px;
+}
+
+.input-label {
+  color: $black;
+  font-size: 15px;
+}
+
+.login-button {
+
+  @include button(); // stylelint-disable-line at-rule-no-unknown
+  border: 2px solid $earls-green;
+  color: $earls-green;
+}
+
+.sign-up-button {
+
+  @include button(); // stylelint-disable-line at-rule-no-unknown
+  background-color: $earls-green;
+  color: $white;
+}
+
+.wolox-logo-image {
+  align-self: center;
+  width: 212px;
+}
