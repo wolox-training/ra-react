@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "apisauce": "^1.1.1",
+    "i18next": "^13.1.5",
     "node-sass": "^4.13.0",
     "postcss": "^7.0.21",
     "react": "^16.11.0",
