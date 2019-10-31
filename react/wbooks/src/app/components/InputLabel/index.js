@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 function InputLabel({
@@ -15,7 +15,7 @@ function InputLabel({
   disabled
 }) {
   return (
-    <Fragment className={`column start ${className}`}>
+    <div className={`column start ${className}`}>
       <label className={`${textClassName} m-bottom-1`} htmlFor={dataFor}>
         {label}
       </label>
@@ -28,13 +28,12 @@ function InputLabel({
         onChange={handleChange}
         disabled={disabled}
       />
-    </Fragment>
+    </div>
   );
 }
 
 InputLabel.propTypes = {
   dataFor: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
   inputId: PropTypes.string.isRequired,
   inputType: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
@@ -43,14 +42,16 @@ InputLabel.propTypes = {
   disabled: PropTypes.bool,
   inputClassName: PropTypes.string,
   placeholder: PropTypes.string,
-  textClassName: PropTypes.string
+  textClassName: PropTypes.string,
+  handleChange: PropTypes.func
 };
 
 InputLabel.defaultProps = {
   className: '',
   inputClassName: '',
   placeholder: '',
-  textClassName: ''
+  textClassName: '',
+  handleChange: () => ('')
 };
 
 export default InputLabel;
