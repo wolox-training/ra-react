@@ -1,35 +1,41 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-function InputLabel({
-  className,
-  textClassName,
-  dataFor,
-  label,
-  inputClassName,
-  name,
-  placeholder,
-  inputId,
-  inputType,
-  handleChange,
-  disabled
-}) {
-  return (
-    <div className={`column start ${className}`}>
-      <label className={`${textClassName} m-bottom-1`} htmlFor={dataFor}>
-        {label}
-      </label>
-      <input
-        className={inputClassName}
-        name={name}
-        placeholder={placeholder}
-        id={inputId}
-        type={inputType}
-        onChange={handleChange}
-        disabled={disabled}
-      />
-    </div>
-  );
+class InputLabel extends Component {
+  state = { inputValue: this.props.initialValue};
+
+  updateInputValue = evt => {
+    this.setState({
+      inputValue: evt.target.value
+    });
+
+    if (this.props.handleChange)
+      this.props.handleChange(evt.target.value);
+  }
+
+  render() {
+    const { className, textClassName, dataFor, label, inputClassName, name, placeholder, inputId,
+      inputType, disabled } = this.props;
+    const { inputValue } = this.state;
+
+    return (
+      <div className={`column start ${className}`}>
+        <label className={`${textClassName} m-bottom-1`} htmlFor={dataFor}>
+          {label}
+        </label>
+        <input
+          className={inputClassName}
+          name={name}
+          placeholder={placeholder}
+          id={inputId}
+          type={inputType}
+          onChange={this.updateInputValue}
+          disabled={disabled}
+          value={inputValue}
+        />
+      </div>
+    );
+  }
 }
 
 InputLabel.propTypes = {
@@ -43,7 +49,8 @@ InputLabel.propTypes = {
   inputClassName: PropTypes.string,
   placeholder: PropTypes.string,
   textClassName: PropTypes.string,
-  handleChange: PropTypes.func
+  handleChange: PropTypes.func,
+  initialValue: PropTypes.string
 };
 
 InputLabel.defaultProps = {
@@ -51,7 +58,7 @@ InputLabel.defaultProps = {
   inputClassName: '',
   placeholder: '',
   textClassName: '',
-  handleChange: () => ('')
+  initialValue: ''
 };
 
 export default InputLabel;
