@@ -2,20 +2,31 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class InputLabel extends Component {
-  state = { inputValue: this.props.initialValue};
+  state = { inputValue: this.props.initialValue };
 
-  updateInputValue = evt => {
+  handleUpdateInputValue = evt => {
     this.setState({
       inputValue: evt.target.value
     });
 
-    if (this.props.handleChange)
+    if (this.props.handleChange) {
       this.props.handleChange(evt.target.value);
-  }
+    }
+  };
 
   render() {
-    const { className, textClassName, dataFor, label, inputClassName, name, placeholder, inputId,
-      inputType, disabled } = this.props;
+    const {
+      className,
+      textClassName,
+      dataFor,
+      label,
+      inputClassName,
+      name,
+      placeholder,
+      inputId,
+      inputType,
+      disabled
+    } = this.props;
     const { inputValue } = this.state;
 
     return (
@@ -29,7 +40,7 @@ class InputLabel extends Component {
           placeholder={placeholder}
           id={inputId}
           type={inputType}
-          onChange={this.updateInputValue}
+          onChange={this.handleUpdateInputValue}
           disabled={disabled}
           value={inputValue}
         />
@@ -46,19 +57,19 @@ InputLabel.propTypes = {
   name: PropTypes.string.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
+  handleChange: PropTypes.func,
+  initialValue: PropTypes.string,
   inputClassName: PropTypes.string,
   placeholder: PropTypes.string,
-  textClassName: PropTypes.string,
-  handleChange: PropTypes.func,
-  initialValue: PropTypes.string
+  textClassName: PropTypes.string
 };
 
 InputLabel.defaultProps = {
   className: '',
+  initialValue: '',
   inputClassName: '',
   placeholder: '',
-  textClassName: '',
-  initialValue: ''
+  textClassName: ''
 };
 
 export default InputLabel;

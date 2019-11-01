@@ -8,39 +8,39 @@ import styles from './styles.module.scss';
 
 class SignUp extends Component {
   handleSignUp = () => {
-    console.log(
-      {
-        "user": {
-          "email": this.state.email,
-          "password": this.state.password,
-          "password_confirmation": this.state.passwordConfirmation,
-          "first_name": this.state.name,
-          "last_name": this.state.lastname,
-          "locale": "en"
-        }
+    console.log({
+      user: {
+        email: this.state.email,
+        password: this.state.password,
+        /* eslint-disable camelcase */
+        password_confirmation: this.state.passwordConfirmation,
+        first_name: this.state.name,
+        last_name: this.state.lastname,
+        /* eslint-enable camelcase */
+        locale: 'en'
       }
-    );
-  }
+    });
+  };
 
   onChangeName = name => {
     this.setState({ name });
-  }
+  };
 
   onChangeLastname = lastname => {
     this.setState({ lastname });
-  }
+  };
 
   onChangePassword = password => {
     this.setState({ password });
-  }
+  };
 
   onChangeEmail = email => {
     this.setState({ email });
-  }
+  };
 
   onChangePasswordConfirmation = passwordConfirmation => {
     this.setState({ passwordConfirmation });
-  }
+  };
 
   render() {
     return (
@@ -104,11 +104,11 @@ class SignUp extends Component {
           />
           <button type="submit" className={`${styles.signUpButton} full-width m-top-4`}>
             Sign Up
-        </button>
+          </button>
         </form>
         <button type="button" className={`${styles.loginButton} full-width`}>
           Login
-      </button>
+        </button>
       </div>
     );
   }
