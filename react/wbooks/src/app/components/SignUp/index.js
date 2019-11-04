@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { t } from 'i18next';
+import { get } from 'lodash';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
 
 import styles from './styles.module.scss';
-import { LOGIN, SIGN_UP } from './constants';
+import { LOGIN, SIGN_UP, FIELDS, FIELDS_DATA } from './constants';
 
 class SignUp extends Component {
   handleSignUp = () => {
@@ -34,53 +35,19 @@ class SignUp extends Component {
       <div className={`${styles.container} column background-wild-sand`}>
         <img src={imagePlaceholder} alt="Wolox logo" className={styles.woloxLogoImage} />
         <form onSubmit={this.handleSignUp} className={`${styles.signUpForm} m-bottom-3`}>
-          <InputLabel
-            textClassName={`${styles.inputLabel} m-top-3`}
-            dataFor="name"
-            label={t('SignUp:name')}
-            inputClassName={`${styles.input} full-width`}
-            name="name"
-            inputId="name"
-            handleChange={this.onChangeField}
-          />
-          <InputLabel
-            textClassName={`${styles.inputLabel} m-top-3`}
-            dataFor="lastname"
-            label={t('SignUp:lastname')}
-            inputClassName={`${styles.input} full-width`}
-            name="lastname"
-            inputId="lastname"
-            handleChange={this.onChangeField}
-          />
-          <InputLabel
-            textClassName={`${styles.inputLabel} m-top-3`}
-            dataFor="email"
-            label="Email"
-            inputClassName={`${styles.input} full-width`}
-            name="email"
-            inputId="email"
-            handleChange={this.onChangeField}
-          />
-          <InputLabel
-            textClassName={`${styles.inputLabel} m-top-3`}
-            dataFor="password"
-            label="Password"
-            inputClassName={`${styles.input} full-width`}
-            name="password"
-            inputId="password"
-            inputType="password"
-            handleChange={this.onChangeField}
-          />
-          <InputLabel
-            textClassName={`${styles.inputLabel} m-top-3`}
-            dataFor="passwordConfirmation"
-            label={t('SignUp:passwordConfirmation')}
-            inputClassName={`${styles.input} full-width`}
-            name="passwordConfirmation"
-            inputId="passwordConfirmation"
-            inputType="password"
-            handleChange={this.onChangeField}
-          />
+          {FIELDS.map(field => (
+            <InputLabel
+              key={field}
+              textClassName={`${styles.inputLabel} m-top-3`}
+              dataFor={field}
+              label={get(FIELDS_DATA[field], 'label') || t(`SignUp:${field}`)}
+              inputClassName={`${styles.input} full-width`}
+              name={field}
+              inputId={field}
+              handleChange={this.onChangeField}
+              inputType={get(FIELDS_DATA[field], 'inputType')}
+            />
+          ))}
           <button type="submit" className={`${styles.signUpButton} full-width m-top-4`}>
             {SIGN_UP}
           </button>
