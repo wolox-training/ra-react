@@ -48,7 +48,6 @@ class SignUp extends Component {
         <img src={imagePlaceholder} alt="Wolox logo" className={styles.woloxLogoImage} />
         <form onSubmit={this.handleSignUp} className={`${styles.signUpForm} m-bottom-3`}>
           <InputLabel
-            className=""
             textClassName={`${styles.inputLabel} m-top-3`}
             dataFor="name"
             label={t('SignUp:name')}
@@ -59,7 +58,6 @@ class SignUp extends Component {
             handleChange={this.onChangeName}
           />
           <InputLabel
-            className=""
             textClassName={`${styles.inputLabel} m-top-3`}
             dataFor="lastname"
             label={t('SignUp:lastname')}
@@ -70,7 +68,6 @@ class SignUp extends Component {
             handleChange={this.onChangeLastname}
           />
           <InputLabel
-            className=""
             textClassName={`${styles.inputLabel} m-top-3`}
             dataFor="email"
             label="Email"
@@ -81,7 +78,6 @@ class SignUp extends Component {
             handleChange={this.onChangeEmail}
           />
           <InputLabel
-            className=""
             textClassName={`${styles.inputLabel} m-top-3`}
             dataFor="password"
             label="Password"
@@ -92,7 +88,6 @@ class SignUp extends Component {
             handleChange={this.onChangePassword}
           />
           <InputLabel
-            className=""
             textClassName={`${styles.inputLabel} m-top-3`}
             dataFor="passwordConfirmation"
             label={t('SignUp:passwordConfirmation')}
