@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { string, bool, func } from 'prop-types';
 
 class InputLabel extends Component {
   state = { inputValue: this.props.initialValue };
@@ -50,18 +50,18 @@ class InputLabel extends Component {
 }
 
 InputLabel.propTypes = {
-  dataFor: PropTypes.string.isRequired,
-  inputId: PropTypes.string.isRequired,
-  inputType: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  disabled: PropTypes.bool,
-  handleChange: PropTypes.func,
-  initialValue: PropTypes.string,
-  inputClassName: PropTypes.string,
-  placeholder: PropTypes.string,
-  textClassName: PropTypes.string
+  dataFor: string.isRequired,
+  inputId: string.isRequired,
+  inputType: string.isRequired,
+  label: string.isRequired,
+  name: string.isRequired,
+  className: string,
+  disabled: bool,
+  handleChange: func,
+  initialValue: string,
+  inputClassName: string,
+  placeholder: string,
+  textClassName: string
 };
 
 InputLabel.defaultProps = {
