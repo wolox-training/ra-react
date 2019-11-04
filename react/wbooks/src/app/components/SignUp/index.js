@@ -9,14 +9,16 @@ import { LOGIN, SIGN_UP } from './constants';
 
 class SignUp extends Component {
   handleSignUp = () => {
+    const { email, password, passwordConfirmation, name, lastname } = this.state;
+
     console.log({
       user: {
-        email: this.state.email,
-        password: this.state.password,
+        email,
+        password,
         /* eslint-disable camelcase */
-        password_confirmation: this.state.passwordConfirmation,
-        first_name: this.state.name,
-        last_name: this.state.lastname,
+        password_confirmation: passwordConfirmation,
+        first_name: name,
+        last_name: lastname,
         /* eslint-enable camelcase */
         locale: 'en'
       }
