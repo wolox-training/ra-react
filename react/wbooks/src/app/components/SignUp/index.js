@@ -5,6 +5,7 @@ import imagePlaceholder from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
 
 import styles from './styles.module.scss';
+import { LOGIN, SIGN_UP } from './constants';
 
 class SignUp extends Component {
   handleSignUp = () => {
@@ -95,11 +96,11 @@ class SignUp extends Component {
             handleChange={this.onChangePasswordConfirmation}
           />
           <button type="submit" className={`${styles.signUpButton} full-width m-top-4`}>
-            Sign Up
+            {SIGN_UP}
           </button>
         </form>
         <button type="button" className={`${styles.loginButton} full-width`}>
-          Login
+          {LOGIN}
         </button>
       </div>
     );
