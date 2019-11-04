@@ -10,7 +10,7 @@ class InputLabel extends Component {
     });
 
     if (this.props.handleChange) {
-      this.props.handleChange(evt.target.value);
+      this.props.handleChange(evt.target.name, evt.target.value);
     }
   };
 

@@ -25,24 +25,8 @@ class SignUp extends Component {
     });
   };
 
-  onChangeName = name => {
-    this.setState({ name });
-  };
-
-  onChangeLastname = lastname => {
-    this.setState({ lastname });
-  };
-
-  onChangePassword = password => {
-    this.setState({ password });
-  };
-
-  onChangeEmail = email => {
-    this.setState({ email });
-  };
-
-  onChangePasswordConfirmation = passwordConfirmation => {
-    this.setState({ passwordConfirmation });
+  onChangeField = (fieldName, fieldValue) => {
+    this.setState({ [fieldName]: fieldValue });
   };
 
   render() {
@@ -57,7 +41,7 @@ class SignUp extends Component {
             inputClassName={`${styles.input} full-width`}
             name="name"
             inputId="name"
-            handleChange={this.onChangeName}
+            handleChange={this.onChangeField}
           />
           <InputLabel
             textClassName={`${styles.inputLabel} m-top-3`}
@@ -66,7 +50,7 @@ class SignUp extends Component {
             inputClassName={`${styles.input} full-width`}
             name="lastname"
             inputId="lastname"
-            handleChange={this.onChangeLastname}
+            handleChange={this.onChangeField}
           />
           <InputLabel
             textClassName={`${styles.inputLabel} m-top-3`}
@@ -75,7 +59,7 @@ class SignUp extends Component {
             inputClassName={`${styles.input} full-width`}
             name="email"
             inputId="email"
-            handleChange={this.onChangeEmail}
+            handleChange={this.onChangeField}
           />
           <InputLabel
             textClassName={`${styles.inputLabel} m-top-3`}
@@ -85,7 +69,7 @@ class SignUp extends Component {
             name="password"
             inputId="password"
             inputType="password"
-            handleChange={this.onChangePassword}
+            handleChange={this.onChangeField}
           />
           <InputLabel
             textClassName={`${styles.inputLabel} m-top-3`}
@@ -95,7 +79,7 @@ class SignUp extends Component {
             name="passwordConfirmation"
             inputId="passwordConfirmation"
             inputType="password"
-            handleChange={this.onChangePasswordConfirmation}
+            handleChange={this.onChangeField}
           />
           <button type="submit" className={`${styles.signUpButton} full-width m-top-4`}>
             {SIGN_UP}
