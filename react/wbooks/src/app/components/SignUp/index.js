@@ -54,7 +54,6 @@ class SignUp extends Component {
             inputClassName={`${styles.input} full-width`}
             name="name"
             inputId="name"
-            inputType="text"
             handleChange={this.onChangeName}
           />
           <InputLabel
@@ -64,7 +63,6 @@ class SignUp extends Component {
             inputClassName={`${styles.input} full-width`}
             name="lastname"
             inputId="lastname"
-            inputType="text"
             handleChange={this.onChangeLastname}
           />
           <InputLabel
@@ -74,7 +72,6 @@ class SignUp extends Component {
             inputClassName={`${styles.input} full-width`}
             name="email"
             inputId="email"
-            inputType="text"
             handleChange={this.onChangeEmail}
           />
           <InputLabel

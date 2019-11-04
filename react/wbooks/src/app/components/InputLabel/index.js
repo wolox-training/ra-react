@@ -52,7 +52,6 @@ class InputLabel extends Component {
 InputLabel.propTypes = {
   dataFor: string.isRequired,
   inputId: string.isRequired,
-  inputType: string.isRequired,
   label: string.isRequired,
   name: string.isRequired,
   className: string,
@@ -60,6 +59,7 @@ InputLabel.propTypes = {
   handleChange: func,
   initialValue: string,
   inputClassName: string,
+  inputType: string,
   placeholder: string,
   textClassName: string
 };
@@ -68,6 +68,7 @@ InputLabel.defaultProps = {
   className: '',
   initialValue: '',
   inputClassName: '',
+  inputType: 'text',
   placeholder: '',
   textClassName: ''
 };
