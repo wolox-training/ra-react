@@ -5,6 +5,8 @@ $body-padding-top-for-back: 40px;
 $body-padding-top-for-book: 200px;
 $breakpoint-desktop: 1024px;
 $login-main-component-width: 935px;
+$wolox-logo-image-normal-size-width: 261px;
+$wolox-logo-image-small-size-width: 212px;
 
 @mixin button {
   border-radius: 5px;
@@ -51,7 +53,7 @@ $login-main-component-width: 935px;
 
 .book-cover-image {
   margin-right: 40px;
-  width: 261px;
+  width: $wolox-logo-image-normal-size-width;
 }
 
 .book-cover-image-little {
@@ -157,7 +159,7 @@ $login-main-component-width: 935px;
 }
 
 .wolox-logo-image {
-  width: 212px;
+  width: $wolox-logo-image-small-size-width;
 }
 
 @media (max-width: $breakpoint-desktop) {
