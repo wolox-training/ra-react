@@ -4,26 +4,15 @@ import { get } from 'lodash';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
+import { createUser } from '../../../services/UserService';
 
 import styles from './styles.module.scss';
 import { LOGIN, SIGN_UP, FIELDS, FIELDS_DATA } from './constants';
 
 class SignUp extends Component {
-  handleSignUp = () => {
-    const { email, password, passwordConfirmation, name, lastname } = this.state;
-
-    console.log({
-      user: {
-        email,
-        password,
-        /* eslint-disable camelcase */
-        password_confirmation: passwordConfirmation,
-        first_name: name,
-        last_name: lastname,
-        /* eslint-enable camelcase */
-        locale: 'en'
-      }
-    });
+  handleSignUp = async () => {
+    const response = await createUser({ ...this.state, locale: 'en' });
+    console.log(response);
   };
 
   onChangeField = (fieldName, fieldValue) => {
@@ -34,7 +23,7 @@ class SignUp extends Component {
     return (
       <div className={`${styles.container} column background-wild-sand`}>
         <img src={imagePlaceholder} alt="Wolox logo" className={styles.woloxLogoImage} />
-        <form onSubmit={this.handleSignUp} className={`${styles.signUpForm} m-bottom-3`}>
+        <form className={`${styles.signUpForm} m-bottom-3`}>
           {FIELDS.map(field => (
             <InputLabel
               key={field}
@@ -48,7 +37,11 @@ class SignUp extends Component {
               inputType={get(FIELDS_DATA[field], 'inputType')}
             />
           ))}
-          <button type="submit" className={`${styles.signUpButton} full-width m-top-4`}>
+          <button
+            type="button"
+            onClick={this.handleSignUp}
+            className={`${styles.signUpButton} full-width m-top-4`}
+          >
             {SIGN_UP}
           </button>
         </form>
