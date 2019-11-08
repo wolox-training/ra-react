@@ -7,8 +7,8 @@ const api = create({
   timeout: 15000
 });
 
-export const createUser = ({ email, password, passwordConfirmation, name, lastname, locale }) =>
-  api.post('/users', {
+export const createUser = async ({ email, password, passwordConfirmation, name, lastname, locale }) => {
+  const response = await api.post('/users', {
     user: {
       email,
       password,
@@ -20,3 +20,9 @@ export const createUser = ({ email, password, passwordConfirmation, name, lastna
       locale
     }
   });
+
+  if (response.ok) {
+    return response.data;
+  }
+  throw response;
+};

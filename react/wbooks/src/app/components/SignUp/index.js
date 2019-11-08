@@ -10,9 +10,15 @@ import styles from './styles.module.scss';
 import { LOGIN, SIGN_UP, FIELDS, FIELDS_DATA } from './constants';
 
 class SignUp extends Component {
+  state = { isError: false };
+
   handleSignUp = async () => {
-    const response = await createUser({ ...this.state, locale: 'en' });
-    console.log(response);
+    try {
+      const response = await createUser({ ...this.state, locale: 'en' }); // eslint-disable-line no-unused-vars
+      this.setState({ isError: false, errorMessages: [] });
+    } catch (error) {
+      this.setState({ isError: true, errorMessages: error.data.error });
+    }
   };
 
   onChangeField = (fieldName, fieldValue) => {
@@ -48,6 +54,15 @@ class SignUp extends Component {
         <button type="button" className={`${styles.loginButton} full-width`}>
           {LOGIN}
         </button>
+        {this.state.isError && (
+          <div className={styles.errorsContainer}>
+            {this.state.errorMessages.map(error => (
+              <div className={`${styles.error} full-width`} key={error}>
+                {error}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     );
   }
