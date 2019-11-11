@@ -1,9 +1,9 @@
 import React from 'react';
 
-import SignUp from './app/components/SignUp';
+import Routes from './app/components/Routes';
 
 function App() {
-  return <SignUp />;
+  return <Routes />;
 }
 
 export default App;
