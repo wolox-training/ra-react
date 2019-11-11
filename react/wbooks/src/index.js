@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 
 import App from './App';
+import './app/config/i18n';
 import './scss/application.scss';
 import { register } from './serviceWorker';
 
