@@ -1,13 +1,6 @@
-import { create } from 'apisauce';
-
 import { serializer } from './serializers';
 
-const baseURL = process.env.REACT_APP_USER_BASE_URL;
-
-const api = create({
-  baseURL,
-  timeout: 15000
-});
+import api from '../app/config/api';
 
 export const createUser = async ({ email, password, passwordConfirmation, name, lastname, locale }) => {
   const body = {
@@ -22,6 +15,20 @@ export const createUser = async ({ email, password, passwordConfirmation, name, 
   };
 
   const response = await api.post('/users', serializer.serialize(body));
+
+  if (response.ok) {
+    return response.data;
+  }
+  throw response;
+};
+
+export const login = async ({ email, password }) => {
+  const response = await api.post('/users/sessions', {
+    session: {
+      email,
+      password
+    }
+  });
 
   if (response.ok) {
     return response.data;

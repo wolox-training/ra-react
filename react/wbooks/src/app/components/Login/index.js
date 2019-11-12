@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { get } from 'lodash';
+import { get, isArray } from 'lodash';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
-// import { createUser } from '../../../services/UserService';
+import { login } from '../../../services/UserService';
 
 import styles from './styles.module.scss';
 import { LOGIN, SIGN_UP, FIELDS, FIELDS_DATA } from './constants';
@@ -11,9 +11,10 @@ import { LOGIN, SIGN_UP, FIELDS, FIELDS_DATA } from './constants';
 class Login extends Component {
   state = { isError: false };
 
-  handleLogin = () => {
+  handleLogin = async () => {
     try {
-      // const response = await createUser({ ...this.state, locale: 'en' }); // eslint-disable-line no-unused-vars
+      const response = await login(this.state);
+      console.log(response);
       this.setState({ isError: false, errorMessages: [] });
     } catch (error) {
       this.setState({ isError: true, errorMessages: error.data.error });
@@ -25,6 +26,10 @@ class Login extends Component {
   };
 
   render() {
+    const errorMessages = isArray(this.state.errorMessages)
+      ? this.state.errorMessages
+      : [this.state.errorMessages];
+
     return (
       <div className={`${styles.container} column background-wild-sand`}>
         <img src={imagePlaceholder} alt="Wolox logo" className={styles.woloxLogoImage} />
@@ -55,7 +60,7 @@ class Login extends Component {
         </button>
         {this.state.isError && (
           <div className={styles.errorsContainer}>
-            {this.state.errorMessages.map(error => (
+            {errorMessages.map(error => (
               <div className={`${styles.error} full-width`} key={error}>
                 {error}
               </div>
