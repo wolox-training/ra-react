@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { set } from 'local-storage';
 import { object } from 'prop-types';
 import { set } from 'local-storage';
+import { withRouter } from 'react-router-dom';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
@@ -37,6 +38,16 @@ class Login extends Component {
     const { errorMessages, isError } = this.state;
     const formattedErrorMessages = isArray(errorMessages) ? errorMessages : [errorMessages];
 
+    const LoginButton = withRouter(({ history }) => (
+      <button
+        type="button"
+        onClick={() => this.handleLogin(history)}
+        className={`${styles.loginButton} full-width m-top-4`}
+      >
+        {LOGIN}
+      </button>
+    ));
+
     return (
       <div className={`${styles.container} column background-wild-sand`}>
         <img src={imagePlaceholder} alt="Wolox logo" className={styles.woloxLogoImage} />
@@ -54,9 +65,7 @@ class Login extends Component {
               inputType={FIELDS[field].inputType}
             />
           ))}
-          <button type="submit" className={`${styles.loginButton} full-width m-top-4`}>
-            {LOGIN}
-          </button>
+          <LoginButton />
         </form>
         <Link className={`${styles.signUpButton} full-width`} to={Routes.SIGN_UP}>
           {SIGN_UP}
