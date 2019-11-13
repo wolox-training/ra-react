@@ -4,6 +4,7 @@ import { set } from 'local-storage';
 import { object } from 'prop-types';
 import { set } from 'local-storage';
 import { withRouter } from 'react-router-dom';
+import ls from 'local-storage';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
