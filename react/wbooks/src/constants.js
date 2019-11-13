@@ -3,3 +3,5 @@ export const Routes = {
   SIGN_UP: '/sign_up',
   HOME: '/home'
 };
+
+export const ACCESS_TOKEN = 'access-token';

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
+import ls from 'local-storage';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
 import ErrorMessages from '../ErrorMessages';
 import { login } from '../../../services/User/service';
-import { Routes } from '../../../constants';
 import { isArray } from '../../../utils/helpers';
+import { Routes, ACCESS_TOKEN } from '../../../constants';
 
 import styles from './styles.module.scss';
 import { LOGIN, SIGN_UP, FIELDS } from './constants';
@@ -18,8 +19,9 @@ class Login extends Component {
   handleLogin = async event => {
     event.preventDefault();
     try {
-      const response = await login(this.state); // eslint-disable-line no-unused-vars
+      const response = await login(this.state);
       this.setState({ isError: false, errorMessages: [] });
+      ls.set(ACCESS_TOKEN, response.access_token);
       history.push(Routes.HOME);
     } catch (error) {
       this.setState({ isError: true, errorMessages: error.data.error });
