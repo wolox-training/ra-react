@@ -10,7 +10,15 @@ import styles from './styles.module.scss';
 import { LOGIN, SIGN_UP, FIELDS, FIELDS_DATA } from './constants';
 
 class SignUp extends Component {
-  state = { isError: false };
+  state = {
+    name: '',
+    lastname: '',
+    email: '',
+    password: '',
+    passwordConfirmation: '',
+    isError: false,
+    errorMessages: []
+  };
 
   handleSignUp = async () => {
     try {
