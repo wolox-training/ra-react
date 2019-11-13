@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { set } from 'local-storage';
 import { object } from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import ls from 'local-storage';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
