@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
@@ -19,6 +20,7 @@ class Login extends Component {
     try {
       const response = await login(this.state); // eslint-disable-line no-unused-vars
       this.setState({ isError: false, errorMessages: [] });
+      history.push(Routes.HOME);
     } catch (error) {
       this.setState({ isError: true, errorMessages: error.data.error });
     }
@@ -31,6 +33,16 @@ class Login extends Component {
   render() {
     const { errorMessages, isError } = this.state;
     const formattedErrorMessages = isArray(errorMessages) ? errorMessages : [errorMessages];
+
+    const LoginButton = withRouter(({ history }) => (
+      <button
+        type="button"
+        onClick={() => this.handleLogin(history)}
+        className={`${styles.loginButton} full-width m-top-4`}
+      >
+        {LOGIN}
+      </button>
+    ));
 
     return (
       <div className={`${styles.container} column background-wild-sand`}>
@@ -49,9 +61,7 @@ class Login extends Component {
               inputType={FIELDS[field].inputType}
             />
           ))}
-          <button type="submit" className={`${styles.loginButton} full-width m-top-4`}>
-            {LOGIN}
-          </button>
+          <LoginButton />
         </form>
         <Link className={`${styles.signUpButton} full-width`} to={Routes.SIGN_UP}>
           {SIGN_UP}
