@@ -22,7 +22,6 @@ export const createUser = async ({ email, password, passwordConfirmation, name, 
   };
 
   const response = await api.post('/users', serializer.serialize(body));
-  console.log(response);
 
   if (response.ok) {
     return response.data;

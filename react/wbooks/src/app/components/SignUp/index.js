@@ -20,7 +20,8 @@ class SignUp extends Component {
     errorMessages: []
   };
 
-  handleSignUp = async () => {
+  handleSignUp = async event => {
+    event.preventDefault();
     try {
       const response = await createUser({ ...this.state, locale: 'en' }); // eslint-disable-line no-unused-vars
       this.setState({ isError: false, errorMessages: [] });
@@ -37,7 +38,7 @@ class SignUp extends Component {
     return (
       <div className={`${styles.container} column background-wild-sand`}>
         <img src={imagePlaceholder} alt="Wolox logo" className={styles.woloxLogoImage} />
-        <form className={`${styles.signUpForm} m-bottom-3`}>
+        <form onSubmit={this.handleSignUp} className={`${styles.signUpForm} m-bottom-3`}>
           {FIELDS.map(field => (
             <InputLabel
               key={field}
@@ -51,11 +52,7 @@ class SignUp extends Component {
               inputType={get(FIELDS_DATA[field], 'inputType')}
             />
           ))}
-          <button
-            type="button"
-            onClick={this.handleSignUp}
-            className={`${styles.signUpButton} full-width m-top-4`}
-          >
+          <button type="submit" className={`${styles.signUpButton} full-width m-top-4`}>
             {SIGN_UP}
           </button>
         </form>
