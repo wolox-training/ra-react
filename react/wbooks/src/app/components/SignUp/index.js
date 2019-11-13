@@ -4,7 +4,7 @@ import { get } from 'lodash';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
-import { createUser } from '../../../services/UserService';
+import { createUser } from '../../../services/User/service';
 
 import styles from './styles.module.scss';
 import { LOGIN, SIGN_UP, FIELDS, FIELDS_DATA } from './constants';
