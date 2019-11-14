@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import ls from 'local-storage';
+import { set } from 'local-storage';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
@@ -20,7 +20,7 @@ class Login extends Component {
     try {
       const response = await login(this.state);
       this.setState({ isError: false, errorMessages: [] });
-      ls.set(ACCESS_TOKEN, response.access_token);
+      set(ACCESS_TOKEN, response.access_token);
       this.props.history.push(Routes.HOME);
     } catch (error) {
       this.setState({ isError: true, errorMessages: error.data.error });

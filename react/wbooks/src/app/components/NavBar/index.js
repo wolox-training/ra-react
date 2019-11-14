@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import ls from 'local-storage';
+import { remove } from 'local-storage';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
 import { Routes, ACCESS_TOKEN } from '../../../constants';
@@ -9,7 +9,7 @@ import styles from './styles.module.scss';
 import { LOGOUT } from './constants';
 
 class Logout extends Component {
-  handleLogout = () => ls.remove(ACCESS_TOKEN);
+  handleLogout = () => remove(ACCESS_TOKEN);
 
   render() {
     return (
