@@ -1,6 +1,6 @@
-import { serializer } from './serializers';
+import api from '../../app/config/api';
 
-import api from '../app/config/api';
+import { serializer } from './serializers';
 
 export const createUser = async ({ email, password, passwordConfirmation, name, lastname, locale }) => {
   const body = {

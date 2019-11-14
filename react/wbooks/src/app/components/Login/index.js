@@ -3,13 +3,13 @@ import { get, isArray } from 'lodash';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
-import { login } from '../../../services/UserService';
+import { login } from '../../../services/User/service';
 
 import styles from './styles.module.scss';
 import { LOGIN, SIGN_UP, FIELDS, FIELDS_DATA } from './constants';
 
 class Login extends Component {
-  state = { isError: false };
+  state = { email: '', password: '', isError: false, errorMessages: [] };
 
   handleLogin = async () => {
     try {
