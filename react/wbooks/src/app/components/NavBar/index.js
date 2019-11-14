@@ -9,7 +9,7 @@ import styles from './styles.module.scss';
 import { LOGOUT } from './constants';
 
 class Logout extends Component {
-  handleLogout = () => ls.removeItem(ACCESS_TOKEN);
+  handleLogout = () => ls.remove(ACCESS_TOKEN);
 
   render() {
     return (
