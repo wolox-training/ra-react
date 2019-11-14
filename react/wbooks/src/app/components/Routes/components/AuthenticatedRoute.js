@@ -6,8 +6,8 @@ import { isNull } from 'lodash';
 
 import { Routes, ACCESS_TOKEN } from '../../../../constants';
 
-const DEFAULT_PUBLIC_ROUTE = Routes.LOGIN;
-const DEFAULT_PRIVATE_ROUTE = Routes.HOME;
+const DEFAULT_PUBLIC_ROUTE = Routes.LOGIN_AND_HOME;
+const DEFAULT_PRIVATE_ROUTE = Routes.LOGIN_AND_HOME;
 
 function AuthenticatedRoute({ isPublicRoute, component: Comp, ...props }) {
   return (

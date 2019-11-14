@@ -1,7 +1,6 @@
 export const Routes = {
-  LOGIN: '/',
-  SIGN_UP: '/sign_up',
-  HOME: '/home'
+  LOGIN_AND_HOME: '/',
+  SIGN_UP: '/sign_up'
 };
 
 export const ACCESS_TOKEN = 'access-token';

@@ -7,14 +7,14 @@ import Login from '../Login';
 import NavBar from '../NavBar';
 
 import AuthenticatedRoute from './components/AuthenticatedRoute';
+import HybridRoute from './components/HybridRoute';
 
 function AppRoutes() {
   return (
     <Router>
       <Switch>
         <AuthenticatedRoute isPublicRoute path={Routes.SIGN_UP} component={SignUp} />
-        <AuthenticatedRoute isPublicRoute exact path={Routes.LOGIN} component={Login} />
-        <AuthenticatedRoute isPublicRoute={false} path={Routes.HOME} component={NavBar} />
+        <HybridRoute path={Routes.LOGIN_AND_HOME} privateComponent={NavBar} publicComponent={Login} />
       </Switch>
     </Router>
   );
