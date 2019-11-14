@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { t } from 'i18next';
 import { get } from 'lodash';
+import { object, objectOf } from 'prop-types';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
 import { createUser } from '../../../services/User/service';
+import { Routes } from '../../../constants';
 
 import styles from './styles.module.scss';
 import { LOGIN, SIGN_UP, FIELDS, FIELDS_DATA } from './constants';
@@ -29,6 +31,8 @@ class SignUp extends Component {
       this.setState({ isError: true, errorMessages: error.data.error });
     }
   };
+
+  handleLogin = () => this.props.history.push(Routes.LOGIN);
 
   onChangeField = (fieldName, fieldValue) => {
     this.setState({ [fieldName]: fieldValue });
@@ -56,7 +60,7 @@ class SignUp extends Component {
             {SIGN_UP}
           </button>
         </form>
-        <button type="button" className={`${styles.loginButton} full-width`}>
+        <button type="button" onClick={this.handleLogin} className={`${styles.loginButton} full-width`}>
           {LOGIN}
         </button>
         {this.state.isError && (
@@ -72,5 +76,9 @@ class SignUp extends Component {
     );
   }
 }
+
+SignUp.propTypes = {
+  history: objectOf(object)
+};
 
 export default SignUp;
