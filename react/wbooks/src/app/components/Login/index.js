@@ -11,7 +11,8 @@ import { LOGIN, SIGN_UP, FIELDS, FIELDS_DATA } from './constants';
 class Login extends Component {
   state = { email: '', password: '', isError: false, errorMessages: [] };
 
-  handleLogin = async () => {
+  handleLogin = async event => {
+    event.preventDefault();
     try {
       const response = await login(this.state);
       console.log(response);
@@ -33,7 +34,7 @@ class Login extends Component {
     return (
       <div className={`${styles.container} column background-wild-sand`}>
         <img src={imagePlaceholder} alt="Wolox logo" className={styles.woloxLogoImage} />
-        <form className={`${styles.loginForm} m-bottom-3`}>
+        <form onSubmit={this.handleLogin} className={`${styles.loginForm} m-bottom-3`}>
           {FIELDS.map(field => (
             <InputLabel
               key={field}
@@ -47,11 +48,7 @@ class Login extends Component {
               inputType={get(FIELDS_DATA[field], 'inputType')}
             />
           ))}
-          <button
-            type="button"
-            onClick={this.handleLogin}
-            className={`${styles.loginButton} full-width m-top-4`}
-          >
+          <button type="submit" className={`${styles.loginButton} full-width m-top-4`}>
             {LOGIN}
           </button>
         </form>
