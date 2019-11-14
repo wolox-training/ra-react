@@ -14,7 +14,7 @@ function AppRoutes() {
     <Router>
       <Switch>
         <AuthenticatedRoute isPublicRoute path={Routes.SIGN_UP} component={SignUp} />
-        <HybridRoute path={Routes.LOGIN_AND_HOME} privateComponent={NavBar} publicComponent={Login} />
+        <HybridRoute exact path={Routes.LOGIN_AND_HOME} privateComponent={NavBar} publicComponent={Login} />
       </Switch>
     </Router>
   );
