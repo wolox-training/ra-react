@@ -8,7 +8,7 @@ import { Routes, ACCESS_TOKEN } from '../../../constants';
 import styles from './styles.module.scss';
 import { LOGOUT } from './constants';
 
-class Logout extends Component {
+class NavBar extends Component {
   handleLogout = () => remove(ACCESS_TOKEN);
 
   render() {
@@ -25,4 +25,4 @@ class Logout extends Component {
   }
 }
 
-export default Logout;
+export default NavBar;
