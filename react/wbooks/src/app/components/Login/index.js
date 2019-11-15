@@ -30,9 +30,8 @@ class Login extends Component {
   };
 
   render() {
-    const errorMessages = isArray(this.state.errorMessages)
-      ? this.state.errorMessages
-      : [this.state.errorMessages];
+    const { errorMessages, isError } = this.state;
+    const formattedErrorMessages = isArray(errorMessages) ? errorMessages : [errorMessages];
 
     return (
       <div className={`${styles.container} column background-wild-sand`}>
@@ -58,9 +57,9 @@ class Login extends Component {
         <button type="button" onClick={this.handleSignUp} className={`${styles.signUpButton} full-width`}>
           {SIGN_UP}
         </button>
-        {this.state.isError && (
+        {isError && (
           <div className={styles.errorsContainer}>
-            {errorMessages.map(error => (
+            {formattedErrorMessages.map(error => (
               <div className={`${styles.error} full-width`} key={error}>
                 {error}
               </div>
