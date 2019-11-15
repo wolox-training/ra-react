@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { get, isArray } from 'lodash';
+import { isArray } from 'lodash';
 import { object, objectOf } from 'prop-types';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
@@ -8,7 +8,7 @@ import { login } from '../../../services/User/service';
 import { Routes } from '../../../constants';
 
 import styles from './styles.module.scss';
-import { LOGIN, SIGN_UP, FIELDS, FIELDS_DATA } from './constants';
+import { LOGIN, SIGN_UP, FIELDS } from './constants';
 
 class Login extends Component {
   state = { email: '', password: '', isError: false, errorMessages: [] };
@@ -16,8 +16,7 @@ class Login extends Component {
   handleLogin = async event => {
     event.preventDefault();
     try {
-      const response = await login(this.state);
-      console.log(response);
+      const response = await login(this.state); // eslint-disable-line no-unused-vars
       this.setState({ isError: false, errorMessages: [] });
     } catch (error) {
       this.setState({ isError: true, errorMessages: error.data.error });
@@ -39,17 +38,17 @@ class Login extends Component {
       <div className={`${styles.container} column background-wild-sand`}>
         <img src={imagePlaceholder} alt="Wolox logo" className={styles.woloxLogoImage} />
         <form onSubmit={this.handleLogin} className={`${styles.loginForm} m-bottom-3`}>
-          {FIELDS.map(field => (
+          {Object.keys(FIELDS).map(field => (
             <InputLabel
               key={field}
               textClassName={`${styles.inputLabel} m-top-3`}
               dataFor={field}
-              label={FIELDS_DATA[field].label}
+              label={FIELDS[field].label}
               inputClassName={`${styles.input} full-width`}
               name={field}
               inputId={field}
               handleChange={this.onChangeField}
-              inputType={get(FIELDS_DATA[field], 'inputType')}
+              inputType={FIELDS[field].inputType}
             />
           ))}
           <button type="submit" className={`${styles.loginButton} full-width m-top-4`}>

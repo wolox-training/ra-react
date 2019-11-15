@@ -1,5 +1,4 @@
-export const FIELDS = ['email', 'password'];
-export const FIELDS_DATA = {
+export const FIELDS = {
   email: {
     label: 'Email'
   },

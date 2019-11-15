@@ -1,8 +1,9 @@
-export const FIELDS = ['name', 'lastname', 'email', 'password', 'passwordConfirmation'];
-export const FIELDS_DATA = {
+export const FIELDS = {
   email: {
     label: 'Email'
   },
+  lastname: {},
+  name: {},
   password: {
     inputType: 'password',
     label: 'Password'

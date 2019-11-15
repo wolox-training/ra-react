@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { t } from 'i18next';
-import { get } from 'lodash';
 import { object, objectOf } from 'prop-types';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
@@ -9,7 +8,7 @@ import { createUser } from '../../../services/User/service';
 import { Routes } from '../../../constants';
 
 import styles from './styles.module.scss';
-import { LOGIN, SIGN_UP, FIELDS, FIELDS_DATA } from './constants';
+import { LOGIN, SIGN_UP, FIELDS } from './constants';
 
 class SignUp extends Component {
   state = {
@@ -43,17 +42,17 @@ class SignUp extends Component {
       <div className={`${styles.container} column background-wild-sand`}>
         <img src={imagePlaceholder} alt="Wolox logo" className={styles.woloxLogoImage} />
         <form onSubmit={this.handleSignUp} className={`${styles.signUpForm} m-bottom-3`}>
-          {FIELDS.map(field => (
+          {Object.keys(FIELDS).map(field => (
             <InputLabel
               key={field}
               textClassName={`${styles.inputLabel} m-top-3`}
               dataFor={field}
-              label={get(FIELDS_DATA[field], 'label') || t(`SignUp:${field}`)}
+              label={FIELDS[field].label || t(`SignUp:${field}`)}
               inputClassName={`${styles.input} full-width`}
               name={field}
               inputId={field}
               handleChange={this.onChangeField}
-              inputType={get(FIELDS_DATA[field], 'inputType')}
+              inputType={FIELDS[field].inputType}
             />
           ))}
           <button type="submit" className={`${styles.signUpButton} full-width m-top-4`}>
