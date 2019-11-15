@@ -4,9 +4,12 @@
 
 .container {
   border-top: 8px solid $cerulean;
-  margin: auto;
+  left: 50%;  
   max-width: 300px;
   padding: 24px;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
 }
 
