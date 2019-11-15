@@ -1,9 +1,9 @@
 export const FIELDS = {
+  name: {},
+  lastname: {},
   email: {
     label: 'Email'
   },
-  lastname: {},
-  name: {},
   password: {
     inputType: 'password',
     label: 'Password'
