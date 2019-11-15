@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { isArray } from 'lodash';
-import { object, objectOf } from 'prop-types';
+import { object } from 'prop-types';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
@@ -72,7 +72,7 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  history: objectOf(object)
+  history: object // eslint-disable-line react/forbid-prop-types
 };
 
 export default Login;

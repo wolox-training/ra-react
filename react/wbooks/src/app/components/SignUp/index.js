@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { t } from 'i18next';
-import { object, objectOf } from 'prop-types';
+import { object } from 'prop-types';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
@@ -77,7 +77,7 @@ class SignUp extends Component {
 }
 
 SignUp.propTypes = {
-  history: objectOf(object)
+  history: object // eslint-disable-line react/forbid-prop-types
 };
 
 export default SignUp;
