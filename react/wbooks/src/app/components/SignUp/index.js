@@ -4,6 +4,7 @@ import { object } from 'prop-types';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
+import ErrorMessages from '../ErrorMessages';
 import { createUser } from '../../../services/User/service';
 import { Routes } from '../../../constants';
 
@@ -38,6 +39,8 @@ class SignUp extends Component {
   };
 
   render() {
+    const { errorMessages, isError } = this.state;
+
     return (
       <div className={`${styles.container} column background-wild-sand`}>
         <img src={imagePlaceholder} alt="Wolox logo" className={styles.woloxLogoImage} />
@@ -62,15 +65,7 @@ class SignUp extends Component {
         <button type="button" onClick={this.handleLogin} className={`${styles.loginButton} full-width`}>
           {LOGIN}
         </button>
-        {this.state.isError && (
-          <div className={styles.errorsContainer}>
-            {this.state.errorMessages.map(error => (
-              <div className={`${styles.error} full-width`} key={error}>
-                {error}
-              </div>
-            ))}
-          </div>
-        )}
+        {isError && <ErrorMessages errorMessages={errorMessages} />}
       </div>
     );
   }

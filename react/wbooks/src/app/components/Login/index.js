@@ -4,6 +4,7 @@ import { object } from 'prop-types';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
+import ErrorMessages from '../ErrorMessages';
 import { login } from '../../../services/User/service';
 import { Routes } from '../../../constants';
 
@@ -57,15 +58,7 @@ class Login extends Component {
         <button type="button" onClick={this.handleSignUp} className={`${styles.signUpButton} full-width`}>
           {SIGN_UP}
         </button>
-        {isError && (
-          <div className={styles.errorsContainer}>
-            {formattedErrorMessages.map(error => (
-              <div className={`${styles.error} full-width`} key={error}>
-                {error}
-              </div>
-            ))}
-          </div>
-        )}
+        {isError && <ErrorMessages errorMessages={formattedErrorMessages} />}
       </div>
     );
   }
