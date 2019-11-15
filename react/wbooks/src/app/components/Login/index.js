@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { isArray } from 'lodash';
 import { object } from 'prop-types';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
@@ -7,6 +6,7 @@ import InputLabel from '../InputLabel';
 import ErrorMessages from '../ErrorMessages';
 import { login } from '../../../services/User/service';
 import { Routes } from '../../../constants';
+import { isArray } from '../../../utils/helpers';
 
 import styles from './styles.module.scss';
 import { LOGIN, SIGN_UP, FIELDS } from './constants';
