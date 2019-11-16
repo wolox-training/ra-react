@@ -33,8 +33,11 @@
 .sign-up-button {
 
   @include button(); // stylelint-disable-line at-rule-no-unknown
+  align-items: center;
   border: 2px solid $earls-green;
   color: $earls-green;
+  display: flex;
+  justify-content: center;
 }
 
 .login-form {

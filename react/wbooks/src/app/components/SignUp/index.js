@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { t } from 'i18next';
-import { object } from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
@@ -32,8 +32,6 @@ class SignUp extends Component {
     }
   };
 
-  handleLogin = () => this.props.history.push(Routes.LOGIN);
-
   onChangeField = (fieldName, fieldValue) => {
     this.setState({ [fieldName]: fieldValue });
   };
@@ -62,17 +60,13 @@ class SignUp extends Component {
             {SIGN_UP}
           </button>
         </form>
-        <button type="button" onClick={this.handleLogin} className={`${styles.loginButton} full-width`}>
+        <Link className={`${styles.loginButton} full-width`} to={Routes.LOGIN}>
           {LOGIN}
-        </button>
+        </Link>
         {isError && <ErrorMessages errorMessages={errorMessages} />}
       </div>
     );
   }
 }
-
-SignUp.propTypes = {
-  history: object // eslint-disable-line react/forbid-prop-types
-};
 
 export default SignUp;
