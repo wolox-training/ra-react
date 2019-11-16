@@ -22,7 +22,7 @@
 
 .login-button {
 
-  @include button(); // stylelint-disable-line at-rule-no-unknown
+  @extend %button;
   align-items: center;
   border: 2px solid $earls-green;
   color: $earls-green;
@@ -32,7 +32,7 @@
 
 .sign-up-button {
 
-  @include button(); // stylelint-disable-line at-rule-no-unknown
+  @extend %button;
   background-color: $earls-green;
   color: $white;
 }
