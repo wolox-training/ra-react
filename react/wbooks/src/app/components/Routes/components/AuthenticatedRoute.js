@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect, Route, withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { bool } from 'prop-types';
 import { get } from 'local-storage';
 
 import { isNull } from '../../../../utils/helpers';
@@ -47,7 +47,7 @@ AuthenticatedRoute.defaultProps = {
 
 AuthenticatedRoute.propTypes = {
   ...Route.propTypes, // eslint-disable-line react/forbid-foreign-prop-types
-  isPublicRoute: PropTypes.bool
+  isPublicRoute: bool
 };
 
 export default withRouter(AuthenticatedRoute);
