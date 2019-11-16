@@ -2,8 +2,8 @@ import React from 'react';
 import { Redirect, Route, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { get } from 'local-storage';
-import { isNull } from 'lodash';
 
+import { isNull } from '../../../../utils/helpers';
 import { Routes, ACCESS_TOKEN } from '../../../../constants';
 
 const DEFAULT_PUBLIC_ROUTE = Routes.LOGIN_AND_HOME;

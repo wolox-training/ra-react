@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { get } from 'local-storage';
-import { isNull } from 'lodash';
 
+import { isNull } from '../../../../utils/helpers';
 import { ACCESS_TOKEN } from '../../../../constants';
 
 function HybridRoute({ publicComponent: PublicComp, privateComponent: PrivateComp, ...props }) {
