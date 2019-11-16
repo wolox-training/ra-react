@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { set } from 'local-storage';
+import { object } from 'prop-types';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
@@ -64,5 +65,9 @@ class Login extends Component {
     );
   }
 }
+
+Login.propTypes = {
+  history: object // eslint-disable-line react/forbid-prop-types
+};
 
 export default Login;
