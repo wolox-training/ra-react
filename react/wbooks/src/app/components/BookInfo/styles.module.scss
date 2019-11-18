@@ -1,0 +1,29 @@
+@import '../../../scss/colors';
+
+.author {
+  color: $gray;
+  font-size: 14px;
+}
+
+.cotainer {
+  background-color: $white;
+  box-shadow: 4px 4px 10px 0 $lighten-darken;
+  flex-grow: 1;
+  height: 100%;
+  justify-content: center;
+  max-height: 300px;
+  padding-left: 30px;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.wolox-book-cover-image {
+  width: 142px;
+}
