@@ -4,26 +4,30 @@ import { get } from 'lodash';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
+import { createUser } from '../../../services/User/service';
 
 import styles from './styles.module.scss';
 import { LOGIN, SIGN_UP, FIELDS, FIELDS_DATA } from './constants';
 
 class SignUp extends Component {
-  handleSignUp = () => {
-    const { email, password, passwordConfirmation, name, lastname } = this.state;
+  state = {
+    name: '',
+    lastname: '',
+    email: '',
+    password: '',
+    passwordConfirmation: '',
+    isError: false,
+    errorMessages: []
+  };
 
-    console.log({
-      user: {
-        email,
-        password,
-        /* eslint-disable camelcase */
-        password_confirmation: passwordConfirmation,
-        first_name: name,
-        last_name: lastname,
-        /* eslint-enable camelcase */
-        locale: 'en'
-      }
-    });
+  handleSignUp = async event => {
+    event.preventDefault();
+    try {
+      const response = await createUser({ ...this.state, locale: 'en' }); // eslint-disable-line no-unused-vars
+      this.setState({ isError: false, errorMessages: [] });
+    } catch (error) {
+      this.setState({ isError: true, errorMessages: error.data.error });
+    }
   };
 
   onChangeField = (fieldName, fieldValue) => {
@@ -55,6 +59,15 @@ class SignUp extends Component {
         <button type="button" className={`${styles.loginButton} full-width`}>
           {LOGIN}
         </button>
+        {this.state.isError && (
+          <div className={styles.errorsContainer}>
+            {this.state.errorMessages.map(error => (
+              <div className={`${styles.error} full-width`} key={error}>
+                {error}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     );
   }
