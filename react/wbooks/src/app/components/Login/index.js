@@ -1,31 +1,23 @@
 import React, { Component } from 'react';
-import { t } from 'i18next';
 import { Link } from 'react-router-dom';
 
 import imagePlaceholder from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
 import ErrorMessages from '../ErrorMessages';
-import { createUser } from '../../../services/User/service';
+import { login } from '../../../services/User/service';
 import { Routes } from '../../../constants';
+import { isArray } from '../../../utils/helpers';
 
 import styles from './styles.module.scss';
 import { LOGIN, SIGN_UP, FIELDS } from './constants';
 
-class SignUp extends Component {
-  state = {
-    name: '',
-    lastname: '',
-    email: '',
-    password: '',
-    passwordConfirmation: '',
-    isError: false,
-    errorMessages: []
-  };
+class Login extends Component {
+  state = { email: '', password: '', isError: false, errorMessages: [] };
 
-  handleSignUp = async event => {
+  handleLogin = async event => {
     event.preventDefault();
     try {
-      const response = await createUser({ ...this.state, locale: 'en' }); // eslint-disable-line no-unused-vars
+      const response = await login(this.state); // eslint-disable-line no-unused-vars
       this.setState({ isError: false, errorMessages: [] });
     } catch (error) {
       this.setState({ isError: true, errorMessages: error.data.error });
@@ -38,17 +30,18 @@ class SignUp extends Component {
 
   render() {
     const { errorMessages, isError } = this.state;
+    const formattedErrorMessages = isArray(errorMessages) ? errorMessages : [errorMessages];
 
     return (
       <div className={`${styles.container} column background-wild-sand`}>
         <img src={imagePlaceholder} alt="Wolox logo" className={styles.woloxLogoImage} />
-        <form onSubmit={this.handleSignUp} className={`${styles.signUpForm} m-bottom-3`}>
+        <form onSubmit={this.handleLogin} className={`${styles.loginForm} m-bottom-3`}>
           {Object.keys(FIELDS).map(field => (
             <InputLabel
               key={field}
               textClassName={`${styles.inputLabel} m-top-3`}
               dataFor={field}
-              label={FIELDS[field].label || t(`SignUp:${field}`)}
+              label={FIELDS[field].label}
               inputClassName={`${styles.input} full-width`}
               name={field}
               inputId={field}
@@ -56,17 +49,17 @@ class SignUp extends Component {
               inputType={FIELDS[field].inputType}
             />
           ))}
-          <button type="submit" className={`${styles.signUpButton} full-width m-top-4`}>
-            {SIGN_UP}
+          <button type="submit" className={`${styles.loginButton} full-width m-top-4`}>
+            {LOGIN}
           </button>
         </form>
-        <Link className={`${styles.loginButton} full-width`} to={Routes.LOGIN}>
-          {LOGIN}
+        <Link className={`${styles.signUpButton} full-width`} to={Routes.SIGN_UP}>
+          {SIGN_UP}
         </Link>
-        {isError && <ErrorMessages errorMessages={errorMessages} />}
+        {isError && <ErrorMessages errorMessages={formattedErrorMessages} />}
       </div>
     );
   }
 }
 
-export default SignUp;
+export default Login;

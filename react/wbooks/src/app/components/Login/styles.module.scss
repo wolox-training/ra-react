@@ -4,9 +4,12 @@
 
 .container {
   border-top: 8px solid $cerulean;
-  margin: auto;
+  left: 50%;
   max-width: 300px;
   padding: 24px;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
 }
 
@@ -23,6 +26,13 @@
 .login-button {
 
   @extend %button;
+  background-color: $earls-green;
+  color: $white;
+}
+
+.sign-up-button {
+
+  @extend %button;
   align-items: center;
   border: 2px solid $earls-green;
   color: $earls-green;
@@ -30,14 +40,7 @@
   justify-content: center;
 }
 
-.sign-up-button {
-
-  @extend %button;
-  background-color: $earls-green;
-  color: $white;
-}
-
-.sign-up-form {
+.login-form {
   border-bottom: 2px solid $silver-chalice;
   padding-bottom: 15px;
 }

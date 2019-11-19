@@ -6,7 +6,6 @@
     "apisauce": "^1.1.1",
     "cerealizr": "^1.0.0-alpha",
     "i18next": "^13.1.5",
-    "lodash": "^4.17.15",
     "node-sass": "^4.13.0",
     "postcss": "^7.0.21",
     "react": "^16.11.0",
