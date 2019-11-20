@@ -1,24 +1,24 @@
 import React from 'react';
 import { Redirect, Route, withRouter } from 'react-router-dom';
-import { bool } from 'prop-types';
+import { bool, string, elementType } from 'prop-types';
 
 import { Routes, ACCESS_TOKEN } from '../../../../constants';
 
 const DEFAULT_PUBLIC_ROUTE = Routes.LOGIN_AND_HOME;
 const DEFAULT_PRIVATE_ROUTE = Routes.LOGIN_AND_HOME;
 
-function AuthenticatedRoute({ isPublicRoute, component: Comp, ...props }) {
+function AuthenticatedRoute({ isPublicRoute, component: Comp, location, ...props }) {
   return (
     <Route
       {...props}
       render={routeProps => {
-        const userIsLogged = !localStorage.getItem(ACCESS_TOKEN);
+        const userIsLogged = localStorage.getItem(ACCESS_TOKEN);
         if (isPublicRoute && userIsLogged) {
           return (
             <Redirect
               to={{
                 pathname: DEFAULT_PRIVATE_ROUTE,
-                state: { from: props.location }
+                state: { from: location }
               }}
             />
           );
@@ -27,7 +27,7 @@ function AuthenticatedRoute({ isPublicRoute, component: Comp, ...props }) {
             <Redirect
               to={{
                 pathname: DEFAULT_PUBLIC_ROUTE,
-                state: { from: props.location }
+                state: { from: location }
               }}
             />
           );
@@ -44,7 +44,8 @@ AuthenticatedRoute.defaultProps = {
 };
 
 AuthenticatedRoute.propTypes = {
-  ...Route.propTypes, // eslint-disable-line react/forbid-foreign-prop-types
+  component: elementType.isRequired,
+  location: string.isRequired,
   isPublicRoute: bool
 };
 

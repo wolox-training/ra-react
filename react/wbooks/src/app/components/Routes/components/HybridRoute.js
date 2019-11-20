@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
+import { elementType } from 'prop-types';
 
 import { ACCESS_TOKEN } from '../../../../constants';
 
@@ -8,7 +9,7 @@ function HybridRoute({ publicComponent: PublicComp, privateComponent: PrivateCom
     <Route
       {...props}
       render={routeProps => {
-        const userIsLogged = !localStorage.getItem(ACCESS_TOKEN);
+        const userIsLogged = localStorage.getItem(ACCESS_TOKEN);
         return userIsLogged ? <PrivateComp {...routeProps} /> : <PublicComp {...routeProps} />;
       }}
     />
@@ -16,7 +17,8 @@ function HybridRoute({ publicComponent: PublicComp, privateComponent: PrivateCom
 }
 
 HybridRoute.propTypes = {
-  ...Route.propTypes // eslint-disable-line react/forbid-foreign-prop-types
+  privateComponent: elementType.isRequired,
+  publicComponent: elementType.isRequired
 };
 
 export default withRouter(HybridRoute);
