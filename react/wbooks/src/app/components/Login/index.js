@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { object } from 'prop-types';
 
-import imagePlaceholder from '../../assets/wolox-logo.png';
+import woloxLogoImage from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
 import ErrorMessages from '../ErrorMessages';
 import { login } from '../../../services/User/service';
-import { Routes } from '../../../constants';
 import { isArray } from '../../../utils/helpers';
+import { Routes, ACCESS_TOKEN } from '../../../constants';
 
 import styles from './styles.module.scss';
 import { LOGIN, SIGN_UP, FIELDS } from './constants';
@@ -17,8 +18,10 @@ class Login extends Component {
   handleLogin = async event => {
     event.preventDefault();
     try {
-      const response = await login(this.state); // eslint-disable-line no-unused-vars
+      const response = await login(this.state);
       this.setState({ isError: false, errorMessages: [] });
+      localStorage.setItem(ACCESS_TOKEN, response.access_token);
+      this.props.history.push(Routes.HOME);
     } catch (error) {
       this.setState({ isError: true, errorMessages: error.data.error });
     }
@@ -34,7 +37,7 @@ class Login extends Component {
 
     return (
       <div className={`${styles.container} column background-wild-sand`}>
-        <img src={imagePlaceholder} alt="Wolox logo" className={styles.woloxLogoImage} />
+        <img src={woloxLogoImage} alt="Wolox logo" className={styles.woloxLogoImage} />
         <form onSubmit={this.handleLogin} className={`${styles.loginForm} m-bottom-3`}>
           {Object.keys(FIELDS).map(field => (
             <InputLabel
@@ -61,5 +64,9 @@ class Login extends Component {
     );
   }
 }
+
+Login.propTypes = {
+  history: object // eslint-disable-line react/forbid-prop-types
+};
 
 export default Login;
