@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { remove } from 'local-storage';
 
 import woloxLogoImage from '../../assets/wolox-logo.png';
 import { Routes, ACCESS_TOKEN } from '../../../constants';
@@ -9,7 +8,7 @@ import styles from './styles.module.scss';
 import { LOGOUT } from './constants';
 
 class NavBar extends Component {
-  handleLogout = () => remove(ACCESS_TOKEN);
+  handleLogout = () => localStorage.removeItem(ACCESS_TOKEN);
 
   render() {
     return (
