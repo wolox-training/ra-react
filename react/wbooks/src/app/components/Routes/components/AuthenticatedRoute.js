@@ -1,7 +1,6 @@
 import React from 'react';
 import { Redirect, Route, withRouter } from 'react-router-dom';
 import { bool } from 'prop-types';
-import { get } from 'local-storage';
 
 import { isNull } from '../../../../utils/helpers';
 import { Routes, ACCESS_TOKEN } from '../../../../constants';
@@ -14,7 +13,7 @@ function AuthenticatedRoute({ isPublicRoute, component: Comp, ...props }) {
     <Route
       {...props}
       render={routeProps => {
-        const userIsLogged = !isNull(get(ACCESS_TOKEN));
+        const userIsLogged = !isNull(localStorage.getItem(ACCESS_TOKEN));
         if (isPublicRoute && userIsLogged) {
           return (
             <Redirect

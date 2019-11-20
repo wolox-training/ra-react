@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { t } from 'i18next';
 import { Link } from 'react-router-dom';
 
-import imagePlaceholder from '../../assets/wolox-logo.png';
+import woloxLogoImage from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
 import ErrorMessages from '../ErrorMessages';
 import { createUser } from '../../../services/User/service';
@@ -41,7 +41,7 @@ class SignUp extends Component {
 
     return (
       <div className={`${styles.container} column background-wild-sand`}>
-        <img src={imagePlaceholder} alt="Wolox logo" className={styles.woloxLogoImage} />
+        <img src={woloxLogoImage} alt="Wolox logo" className={styles.woloxLogoImage} />
         <form onSubmit={this.handleSignUp} className={`${styles.signUpForm} m-bottom-3`}>
           {Object.keys(FIELDS).map(field => (
             <InputLabel
