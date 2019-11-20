@@ -1,9 +1,11 @@
 @import '../../../scss/colors';
 
 .logout {
+  display: flex;
+  flex-grow: 1;
   font-size: 16px;
   font-weight: 700;
-  margin-left: auto;
+  justify-content: flex-end;
 }
 
 .navbar {
