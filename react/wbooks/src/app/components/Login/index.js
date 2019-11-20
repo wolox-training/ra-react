@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { set } from 'local-storage';
 import { object } from 'prop-types';
 
-import imagePlaceholder from '../../assets/wolox-logo.png';
+import woloxLogoImage from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
 import ErrorMessages from '../ErrorMessages';
 import { login } from '../../../services/User/service';
@@ -38,7 +38,7 @@ class Login extends Component {
 
     return (
       <div className={`${styles.container} column background-wild-sand`}>
-        <img src={imagePlaceholder} alt="Wolox logo" className={styles.woloxLogoImage} />
+        <img src={woloxLogoImage} alt="Wolox logo" className={styles.woloxLogoImage} />
         <form onSubmit={this.handleLogin} className={`${styles.loginForm} m-bottom-3`}>
           {Object.keys(FIELDS).map(field => (
             <InputLabel

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { remove } from 'local-storage';
 
-import imagePlaceholder from '../../assets/wolox-logo.png';
+import woloxLogoImage from '../../assets/wolox-logo.png';
 import { Routes, ACCESS_TOKEN } from '../../../constants';
 
 import styles from './styles.module.scss';
@@ -15,7 +15,7 @@ class NavBar extends Component {
     return (
       <div className={`row center ${styles.navbar}`}>
         <div className={`row middle ${styles.navbarComponents}`}>
-          <img src={imagePlaceholder} alt="Wolox logo" className={styles.woloxLogoImage} />
+          <img src={woloxLogoImage} alt="Wolox logo" className={styles.woloxLogoImage} />
           <Link className={styles.logout} to={Routes.LOGIN} onClick={this.handleLogout}>
             {LOGOUT}
           </Link>
