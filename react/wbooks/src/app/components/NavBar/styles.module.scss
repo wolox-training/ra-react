@@ -1,15 +1,18 @@
 @import '../../../scss/colors';
 
 .logout {
+  display: flex;
+  flex-grow: 1;
   font-size: 16px;
   font-weight: 700;
-  margin-left: auto;
+  justify-content: flex-end;
 }
 
 .navbar {
   border-top: 8px solid $cerulean;
   box-shadow: 4px 4px 10px 0 $lighten-darken;
   height: 100%;
+  left: 0;
   max-height: 70px;
   position: fixed;
   top: 0;
