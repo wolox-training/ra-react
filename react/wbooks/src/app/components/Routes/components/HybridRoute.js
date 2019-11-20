@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
-import { get } from 'local-storage';
 
 import { isNull } from '../../../../utils/helpers';
 import { ACCESS_TOKEN } from '../../../../constants';
@@ -10,7 +9,7 @@ function HybridRoute({ publicComponent: PublicComp, privateComponent: PrivateCom
     <Route
       {...props}
       render={routeProps => {
-        const userIsLogged = !isNull(get(ACCESS_TOKEN));
+        const userIsLogged = !isNull(localStorage.getItem(ACCESS_TOKEN));
         return userIsLogged ? <PrivateComp {...routeProps} /> : <PublicComp {...routeProps} />;
       }}
     />

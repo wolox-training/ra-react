@@ -1,8 +1,5 @@
 @import '../../../scss/colors';
 
-$login-main-component-width: 835px;
-$navbar-height: 70px;
-
 .logout {
   font-size: 16px;
   font-weight: 700;
@@ -13,14 +10,14 @@ $navbar-height: 70px;
   border-top: 8px solid $cerulean;
   box-shadow: 4px 4px 10px 0 $lighten-darken;
   height: 100%;
-  max-height: $navbar-height;
+  max-height: 70px;
   position: fixed;
   top: 0;
   width: 100%;
 }
 
 .navbar-components {
-  max-width: $login-main-component-width;
+  max-width: 835px;
   width: 100%;
 }
 

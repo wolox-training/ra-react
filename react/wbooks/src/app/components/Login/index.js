@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { set } from 'local-storage';
 import { object } from 'prop-types';
 
-import imagePlaceholder from '../../assets/wolox-logo.png';
+import woloxLogoImage from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabel';
 import ErrorMessages from '../ErrorMessages';
 import { login } from '../../../services/User/service';
@@ -21,7 +20,7 @@ class Login extends Component {
     try {
       const response = await login(this.state);
       this.setState({ isError: false, errorMessages: [] });
-      set(ACCESS_TOKEN, response.access_token);
+      localStorage.setItem(ACCESS_TOKEN, response.access_token);
       this.props.history.push(Routes.HOME);
     } catch (error) {
       this.setState({ isError: true, errorMessages: error.data.error });
@@ -38,7 +37,7 @@ class Login extends Component {
 
     return (
       <div className={`${styles.container} column background-wild-sand`}>
-        <img src={imagePlaceholder} alt="Wolox logo" className={styles.woloxLogoImage} />
+        <img src={woloxLogoImage} alt="Wolox logo" className={styles.woloxLogoImage} />
         <form onSubmit={this.handleLogin} className={`${styles.loginForm} m-bottom-3`}>
           {Object.keys(FIELDS).map(field => (
             <InputLabel
