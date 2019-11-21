@@ -1,25 +1,17 @@
 import React, { Component } from 'react';
 
+import { get } from '../../../services/Book/service';
+import { ACCESS_TOKEN } from '../../../constants';
+
 import Home from './layout';
 
 class HomeContainer extends Component {
   state = { books: [] };
 
-  componentDidMount() {
-    // cargar los datos para los libros
+  async componentDidMount() {
+    const books = await get(localStorage.getItem(ACCESS_TOKEN));
     // eslint-disable-next-line react/no-did-mount-set-state
-    this.setState({
-      books: [
-        { title: 'hola', author: 'mercedes beza' },
-        { title: 'hola', author: 'mercedes beza' },
-        { title: 'hola', author: 'mercedes beza' },
-        { title: 'hola', author: 'mercedes beza' },
-        { title: 'hola', author: 'mercedes beza' },
-        { title: 'hola', author: 'mercedes beza' },
-        { title: 'hola', author: 'mercedes beza' },
-        { title: 'hola', author: 'mercedes beza' }
-      ]
-    });
+    this.setState({ books });
   }
 
   render() {

@@ -3,25 +3,19 @@ import { array } from 'prop-types';
 
 import NavBar from '../../components/NavBar';
 import BookInfo from '../../components/BookInfo';
-import { getRandomNumber } from '../../../utils/helpers';
 
 import styles from './styles.module.scss';
 
 function Home({ books }) {
   return (
-    <>
+    <div className={styles.container}>
       <NavBar />
       <div className={`row ${styles.booksContainer}`}>
-        {books.map(({ author, title }) => (
-          <BookInfo
-            author={author}
-            title={title}
-            className="m-right-7 m-top-7"
-            key={`${author}${title}${getRandomNumber()}`}
-          />
+        {books.map(({ author, title, id }) => (
+          <BookInfo author={author} title={title} className="m-right-7 m-top-7" key={id} />
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

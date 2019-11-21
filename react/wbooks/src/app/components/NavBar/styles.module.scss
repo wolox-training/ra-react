@@ -1,12 +1,11 @@
 @import '../../../scss/colors';
 @import '../../../scss/variables';
+@import '../../../scss/zindex';
 
 .logout {
-  display: flex;
-  flex-grow: 1;
   font-size: 16px;
   font-weight: 700;
-  justify-content: flex-end;
+  margin-left: auto;
 }
 
 .navbar {
@@ -18,6 +17,7 @@
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: map-get($zindex, navbar);
 }
 
 .navbar-components {
