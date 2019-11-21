@@ -15,7 +15,7 @@ class NavBar extends Component {
       <div className={`row center ${styles.navbar}`}>
         <div className={`row middle ${styles.navbarComponents}`}>
           <img src={woloxLogoImage} alt="Wolox logo" className={styles.woloxLogoImage} />
-          <Link className={styles.logout} to={Routes.LOGIN} onClick={this.handleLogout}>
+          <Link className={styles.logout} to={Routes.LOGIN_AND_HOME} onClick={this.handleLogout}>
             {LOGOUT}
           </Link>
         </div>

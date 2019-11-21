@@ -1,18 +1,20 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import { Routes } from '../../../constants';
 import SignUp from '../SignUp';
 import Login from '../Login';
 import NavBar from '../NavBar';
 
+import AuthenticatedRoute from './components/AuthenticatedRoute';
+import HybridRoute from './components/HybridRoute';
+
 function AppRoutes() {
   return (
     <Router>
       <Switch>
-        <Route path={Routes.LOGIN} exact component={Login} />
-        <Route path={Routes.SIGN_UP} component={SignUp} />
-        <Route path={Routes.HOME} component={NavBar} />
+        <AuthenticatedRoute isPublicRoute path={Routes.SIGN_UP} component={SignUp} />
+        <HybridRoute exact path={Routes.LOGIN_AND_HOME} privateComponent={NavBar} publicComponent={Login} />
       </Switch>
     </Router>
   );
