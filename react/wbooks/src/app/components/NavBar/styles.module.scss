@@ -1,4 +1,5 @@
 @import '../../../scss/colors';
+@import '../../../scss/variables';
 
 .logout {
   display: flex;
@@ -13,7 +14,7 @@
   box-shadow: 4px 4px 10px 0 $lighten-darken;
   height: 100%;
   left: 0;
-  max-height: 70px;
+  max-height: $navbar-height;
   position: fixed;
   top: 0;
   width: 100%;

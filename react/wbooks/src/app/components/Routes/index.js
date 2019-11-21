@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import { Routes } from '../../../constants';
 import SignUp from '../SignUp';
 import Login from '../Login';
-import NavBar from '../BookInfo';
+import Home from '../../screens/Home';
 
 import AuthenticatedRoute from './components/AuthenticatedRoute';
 import HybridRoute from './components/HybridRoute';
@@ -14,12 +14,7 @@ function AppRoutes() {
     <Router>
       <Switch>
         <AuthenticatedRoute isPublicRoute path={Routes.SIGN_UP} component={SignUp} />
-        <HybridRoute
-          exact
-          path={Routes.LOGIN_AND_HOME}
-          privateComponent={() => <NavBar author="rodo" title="el mas kpo" />}
-          publicComponent={Login}
-        />
+        <HybridRoute exact path={Routes.LOGIN_AND_HOME} privateComponent={Home} publicComponent={Login} />
       </Switch>
     </Router>
   );
