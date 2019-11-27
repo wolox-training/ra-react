@@ -1,6 +1,7 @@
 import React from 'react';
 import { array } from 'prop-types';
 import cn from 'classnames';
+import { t } from 'i18next';
 
 import NavBar from '../../components/NavBar';
 import BookInfo from '../../components/BookInfo';
@@ -20,7 +21,7 @@ function Home({ books }) {
           ))}
         </div>
       ) : (
-        <p className={`${styles.noBooksMessage} full-width`}>No hay ningún libro usar i18n</p>
+        <p className={`${styles.noBooksMessage} full-width`}>{t('Home:noBooksMessage')}</p>
       )}
     </div>
   );
