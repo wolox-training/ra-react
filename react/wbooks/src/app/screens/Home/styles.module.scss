@@ -4,13 +4,14 @@
 
 .books-container {
   flex-wrap: wrap;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: $navbar-height;
+  margin: $navbar-height auto 0 auto;
   max-width: 935px;
   width: 100%;
 }
 
-.container {
-  background-color: $wild-sand;
+.no-books-message {
+  color: $earls-green;
+  font-size: 32px;
+  margin-top: $navbar-height + 35;
+  text-align: center;
 }
