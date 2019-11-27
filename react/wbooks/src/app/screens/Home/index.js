@@ -9,7 +9,8 @@ class HomeContainer extends Component {
   state = { books: [] };
 
   async componentDidMount() {
-    const books = await getBooks(localStorage.getItem(ACCESS_TOKEN));
+    // const books = await getBooks(localStorage.getItem(ACCESS_TOKEN));
+    const books = [];
     // eslint-disable-next-line react/no-did-mount-set-state
     this.setState({ books });
   }

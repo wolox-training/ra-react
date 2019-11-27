@@ -5,6 +5,7 @@
   "dependencies": {
     "apisauce": "^1.1.1",
     "cerealizr": "^1.0.0-alpha",
+    "classnames": "^2.2.6",
     "i18next": "^13.1.5",
     "node-sass": "^4.13.0",
     "postcss": "^7.0.21",
