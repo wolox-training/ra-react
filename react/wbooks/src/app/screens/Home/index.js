@@ -8,8 +8,10 @@ import Home from './layout';
 class HomeContainer extends Component {
   state = { books: [] };
 
+  getBooks = () => getBooks(localStorage.getItem(ACCESS_TOKEN));
+
   async componentDidMount() {
-    const books = await getBooks(localStorage.getItem(ACCESS_TOKEN));
+    const books = await this.getBooks();
     // eslint-disable-next-line react/no-did-mount-set-state
     this.setState({ books });
   }
