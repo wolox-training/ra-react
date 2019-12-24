@@ -4,8 +4,9 @@
 
 .books-container {
   flex-wrap: wrap;
-  margin: $navbar-height + 35 auto 0 auto;
+  margin: $navbar-height auto 0 auto;
   max-width: 935px;
+  padding-top: 35px;
   width: 100%;
 }
 
