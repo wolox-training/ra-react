@@ -23,5 +23,11 @@ export default {
     payload: {
       title
     }
+  }),
+  setFavoriteBook: favoriteBook => ({
+    type: actions.SET_FAVORITE_BOOK,
+    payload: {
+      favoriteBook
+    }
   })
 };
