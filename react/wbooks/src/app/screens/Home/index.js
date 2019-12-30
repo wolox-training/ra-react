@@ -11,9 +11,10 @@ class HomeContainer extends Component {
   getBooks = () => getBooks(localStorage.getItem(ACCESS_TOKEN));
 
   componentDidMount() {
-    const books = this.getBooks();
-    // eslint-disable-next-line react/no-did-mount-set-state
-    this.setState({ books });
+    return this.getBooks().then(books =>
+      // eslint-disable-next-line react/no-did-mount-set-state
+      this.setState({ books })
+    );
   }
 
   render() {
