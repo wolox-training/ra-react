@@ -17,8 +17,7 @@ class HomeContainer extends Component {
       const { books } = store.getState();
       this.setState({ books });
     });
-    const fetchedBooks = this.getBooks();
-    store.dispatch(booksActionsCreators.addBooks(fetchedBooks));
+    return this.getBooks().then(books => store.dispatch(booksActionsCreators.addBooks(books)));
   }
 
   render() {
