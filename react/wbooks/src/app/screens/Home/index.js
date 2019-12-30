@@ -12,12 +12,12 @@ class HomeContainer extends Component {
 
   getBooks = () => getBooks(localStorage.getItem(ACCESS_TOKEN));
 
-  async componentDidMount() {
+  componentDidMount() {
     store.subscribe(() => {
       const { books } = store.getState();
       this.setState({ books });
     });
-    const fetchedBooks = await this.getBooks();
+    const fetchedBooks = this.getBooks();
     store.dispatch(booksActionsCreators.addBooks(fetchedBooks));
   }
 
