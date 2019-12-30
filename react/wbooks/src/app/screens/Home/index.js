@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { getBooks } from '../../../services/Book/service';
 import { ACCESS_TOKEN } from '../../../constants';
+import store from '../../../redux/store';
+import booksActionsCreators from '../../../redux/books/actions';
 
 import Home from './layout';
 
@@ -11,9 +13,12 @@ class HomeContainer extends Component {
   getBooks = () => getBooks(localStorage.getItem(ACCESS_TOKEN));
 
   async componentDidMount() {
-    const books = await this.getBooks();
-    // eslint-disable-next-line react/no-did-mount-set-state
-    this.setState({ books });
+    store.subscribe(() => {
+      const { books } = store.getState();
+      this.setState({ books });
+    });
+    const fetchedBooks = await this.getBooks();
+    store.dispatch(booksActionsCreators.addBooks(fetchedBooks));
   }
 
   render() {
