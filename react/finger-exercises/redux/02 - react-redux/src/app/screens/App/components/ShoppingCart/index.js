@@ -21,7 +21,14 @@ class ShoppingCart extends PureComponent {
 
   renderItem = item => {
     const { addItem, removeItem } = this.props;
-    return <Item key={item.id} item={item} addItem={addItem} removeItem={removeItem} />;
+    return (
+      <Item
+        key={item.id}
+        item={{ ...item, quantity: this.state.booksQuantity[item.id] }}
+        addItem={addItem}
+        removeItem={removeItem}
+      />
+    );
   };
 
   render() {
