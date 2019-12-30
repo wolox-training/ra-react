@@ -7,7 +7,7 @@ const initialState = {
 function reducer(state = initialState, action) {
   switch (action.type) {
     case actions.ADD_BOOKS:
-      return { ...state, books: action.payload.books };
+      return { ...state, books: action.payload };
     default:
       return state;
   }

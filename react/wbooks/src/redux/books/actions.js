@@ -5,8 +5,6 @@ export const actions = {
 export default {
   addBooks: books => ({
     type: actions.ADD_BOOKS,
-    payload: {
-      books
-    }
+    payload: books
   })
 };
