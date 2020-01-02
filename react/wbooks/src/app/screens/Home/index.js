@@ -8,7 +8,7 @@ import booksActionsCreators from '../../../redux/books/actions';
 import Home from './layout';
 
 class HomeContainer extends Component {
-  state = { books: [] };
+  state = { books: { books: [] } };
 
   getBooks = () => getBooks(localStorage.getItem(ACCESS_TOKEN));
 
@@ -21,7 +21,7 @@ class HomeContainer extends Component {
   }
 
   render() {
-    return <Home books={this.state.books} />;
+    return <Home books={this.state.books.books} />;
   }
 }
 
