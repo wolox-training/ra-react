@@ -7,7 +7,9 @@ const initialState = {
 function reducer(state = initialState, action) {
   switch (action.type) {
     case actions.SET_ACCESS_TOKEN:
-      return { ...state, accessToken: action.payload.accessToken };
+      return { ...state, accessToken: action.payload };
+    case actions.REMOVE_ACCESS_TOKEN:
+      return { ...state, accessToken: null };
     default:
       return state;
   }

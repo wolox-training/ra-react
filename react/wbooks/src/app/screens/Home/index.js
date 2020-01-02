@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import { getBooks } from '../../../services/Book/service';
-import { ACCESS_TOKEN } from '../../../constants';
 import store from '../../../redux/store';
 import booksActionsCreators from '../../../redux/books/actions';
 
@@ -10,7 +9,7 @@ import Home from './layout';
 class HomeContainer extends Component {
   state = { books: { books: [] } };
 
-  getBooks = () => getBooks(localStorage.getItem(ACCESS_TOKEN));
+  getBooks = () => getBooks(store.getState().auth.accessToken);
 
   componentDidMount() {
     store.subscribe(() => {

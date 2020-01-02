@@ -2,7 +2,8 @@ import React from 'react';
 import { Redirect, Route, withRouter } from 'react-router-dom';
 import { bool, string, elementType } from 'prop-types';
 
-import { Routes, ACCESS_TOKEN } from '../../../../constants';
+import { Routes } from '../../../../constants';
+import store from '../../../../redux/store';
 
 const DEFAULT_PUBLIC_ROUTE = Routes.LOGIN_AND_HOME;
 const DEFAULT_PRIVATE_ROUTE = Routes.LOGIN_AND_HOME;
@@ -12,8 +13,10 @@ function AuthenticatedRoute({ isPublicRoute, component: Comp, location, ...props
     <Route
       {...props}
       render={routeProps => {
-        const userIsLogged = localStorage.getItem(ACCESS_TOKEN);
-        if (isPublicRoute && userIsLogged) {
+        const {
+          auth: { accessToken }
+        } = store.getState();
+        if (isPublicRoute && accessToken) {
           return (
             <Redirect
               to={{
@@ -22,7 +25,7 @@ function AuthenticatedRoute({ isPublicRoute, component: Comp, location, ...props
               }}
             />
           );
-        } else if (!isPublicRoute && !userIsLogged) {
+        } else if (!isPublicRoute && !accessToken) {
           return (
             <Redirect
               to={{

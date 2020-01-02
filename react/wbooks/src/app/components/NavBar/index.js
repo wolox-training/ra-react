@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import woloxLogoImage from '../../assets/wolox-logo.png';
-import { Routes, ACCESS_TOKEN } from '../../../constants';
+import { Routes } from '../../../constants';
+import store from '../../../redux/store';
+import authActionsCreators from '../../../redux/auth/actions';
 
 import styles from './styles.module.scss';
 import { LOGOUT } from './constants';
 
 class NavBar extends Component {
-  handleLogout = () => localStorage.removeItem(ACCESS_TOKEN);
+  handleLogout = () => store.dispatch(authActionsCreators.removeAccessToken());
 
   render() {
     return (
