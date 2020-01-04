@@ -1,5 +1,6 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import { reducer as formReducer } from 'redux-form';
 
 import books from './books/reducer';
 import auth from './auth/reducer';
@@ -12,7 +13,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const reducer = combineReducers({
   auth,
-  books
+  books,
+  form: formReducer
 });
 
 export default createStore(reducer, composeEnhancers(...enhancers));
