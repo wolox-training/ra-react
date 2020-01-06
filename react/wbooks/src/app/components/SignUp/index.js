@@ -32,6 +32,8 @@ class SignUp extends Component {
     }
   };
 
+  required = value => (value ? undefined : 'Required');
+
   render() {
     const { errorMessages, isError } = this.state;
 
@@ -44,6 +46,7 @@ class SignUp extends Component {
               key={field}
               component={InputLabel}
               name={field}
+              validate={this.required}
               props={{
                 name: field,
                 textClassName: `${styles.inputLabel} m-top-3`,

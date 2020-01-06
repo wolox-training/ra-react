@@ -11,7 +11,8 @@ function InputLabelStateless({
   placeholder,
   inputId,
   inputType,
-  disabled
+  disabled,
+  meta: { touched, error }
 }) {
   return (
     <div className={`column start ${className}`}>
@@ -26,6 +27,7 @@ function InputLabelStateless({
         type={inputType}
         disabled={disabled}
       />
+      {touched && error && <span>{error}</span>}
     </div>
   );
 }
