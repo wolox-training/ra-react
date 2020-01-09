@@ -22,7 +22,7 @@ function SignUp({ handleSubmit, errorMessages, isError }) {
             key={field}
             component={InputLabel}
             name={field}
-            // validate={this.required}
+            validate={FIELDS[field].validations}
             textClassName={`${styles.inputLabel} m-top-3`}
             dataFor={field}
             label={FIELDS[field].label || t(`SignUp:${field}`)}

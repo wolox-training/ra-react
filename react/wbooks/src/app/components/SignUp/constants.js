@@ -1,15 +1,24 @@
+import { fieldRequired, passwordFormat, emailFormat } from './validations';
+
 export const FIELDS = {
-  name: {},
-  lastname: {},
+  name: {
+    validations: [fieldRequired]
+  },
+  lastname: {
+    validations: [fieldRequired]
+  },
   email: {
-    label: 'Email'
+    label: 'Email',
+    validations: [fieldRequired, emailFormat]
   },
   password: {
     inputType: 'password',
-    label: 'Password'
+    label: 'Password',
+    validations: [fieldRequired, passwordFormat]
   },
   passwordConfirmation: {
-    inputType: 'password'
+    inputType: 'password',
+    validations: [fieldRequired]
   }
 };
 export const LOGIN = 'Login';

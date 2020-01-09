@@ -19,10 +19,6 @@ class SignUpContainer extends Component {
     }
   };
 
-  // required = value => {
-  //   return value ? undefined : 'Required';
-  // };
-
   render() {
     const { errorMessages, isError } = this.state;
     return <SignUp onSubmit={this.handleSubmit} errorMessages={errorMessages} isError={isError} />;
