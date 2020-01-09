@@ -30,7 +30,7 @@ function reducer(state = initialState, action) {
     case actions.ADD_READ_BOOK:
       return {
         ...state,
-        readBooks: state.readBooks.concat(action.payload.title)
+        readBooks: [...state.readBooks, action.payload.title] 
       };
     case actions.MOST_HATED_BOOK:
       return {
