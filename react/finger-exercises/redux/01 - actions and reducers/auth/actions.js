@@ -3,7 +3,7 @@ export const actions = {
 };  
 
 export default {
-  logIn: (email, token) => ({
+  login: (email, token) => ({
     type: actions.LOG_IN,
     payload: {
       email,
