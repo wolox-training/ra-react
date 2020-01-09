@@ -2,6 +2,7 @@ import React from 'react';
 import { t } from 'i18next';
 import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
+import { bool, func, array } from 'prop-types';
 
 import woloxLogoImage from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabelStateless';
@@ -22,15 +23,12 @@ function SignUp({ handleSubmit, errorMessages, isError }) {
             component={InputLabel}
             name={field}
             // validate={this.required}
-            props={{
-              name: field,
-              textClassName: `${styles.inputLabel} m-top-3`,
-              dataFor: field,
-              label: FIELDS[field].label || t(`SignUp:${field}`),
-              inputClassName: `${styles.input} full-width`,
-              inputId: field,
-              inputType: FIELDS[field].inputType
-            }}
+            textClassName={`${styles.inputLabel} m-top-3`}
+            dataFor={field}
+            label={FIELDS[field].label || t(`SignUp:${field}`)}
+            inputClassName={`${styles.input} full-width`}
+            inputId={field}
+            inputType={FIELDS[field].inputType}
           />
         ))}
         <button type="submit" className={`${styles.signUpButton} full-width m-top-4`}>
@@ -44,6 +42,12 @@ function SignUp({ handleSubmit, errorMessages, isError }) {
     </div>
   );
 }
+
+SignUp.propTypes = {
+  errorMessages: array.isRequired, // eslint-disable-line react/forbid-prop-types
+  handleSubmit: func.isRequired,
+  isError: bool.isRequired
+};
 
 export default reduxForm({
   form: 'SignUp'

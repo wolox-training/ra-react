@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, bool } from 'prop-types';
+import { string, bool, object, shape } from 'prop-types';
 
 function InputLabelStateless({
   className,
@@ -7,11 +7,11 @@ function InputLabelStateless({
   dataFor,
   label,
   inputClassName,
-  name,
   placeholder,
   inputId,
   inputType,
   disabled,
+  input,
   meta: { touched, error }
 }) {
   return (
@@ -20,6 +20,7 @@ function InputLabelStateless({
         {label}
       </label>
       <input
+        {...input}
         className={inputClassName}
         name={name}
         placeholder={placeholder}
@@ -34,9 +35,13 @@ function InputLabelStateless({
 
 InputLabelStateless.propTypes = {
   dataFor: string.isRequired,
+  input: object.isRequired, // eslint-disable-line react/forbid-prop-types
   inputId: string.isRequired,
   label: string.isRequired,
-  name: string.isRequired,
+  meta: shape({
+    touched: bool.isRequired,
+    error: string
+  }).isRequired,
   className: string,
   disabled: bool,
   inputClassName: string,
