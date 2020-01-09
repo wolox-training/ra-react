@@ -44,7 +44,7 @@ describe('Actions', () => {
     We don't want a branch's actions to affect the other one.
     */
 
-    store.dispatch(authActionsCreators.logIn('cosme.fulanito@wolox.com.ar', 'QpwL5tke4Pnpja7X'));
+    store.dispatch(authActionsCreators.login('cosme.fulanito@wolox.com.ar', 'QpwL5tke4Pnpja7X'));
 
     expect(store.getState().auth).toEqual({
       email: 'cosme.fulanito@wolox.com.ar',
