@@ -1,0 +1,18 @@
+@import '../../../scss/colors';
+
+@import '../../../scss/variables';
+
+.books-container {
+  flex-wrap: wrap;
+  margin: $navbar-height auto 0 auto;
+  max-width: 935px;
+  padding-top: 35px;
+  width: 100%;
+}
+
+.no-books-message {
+  color: $earls-green;
+  font-size: 32px;
+  margin-top: $navbar-height + 35;
+  text-align: center;
+}

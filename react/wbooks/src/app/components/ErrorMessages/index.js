@@ -5,7 +5,7 @@ import styles from './styles.module.scss';
 
 function ErrorMessages({ errorMessages }) {
   return (
-    <div className={styles.errorsContainer}>
+    <div className="m-top-3">
       {errorMessages.map(error => (
         <div className={`${styles.error} full-width`} key={error}>
           {error}

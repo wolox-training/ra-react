@@ -1,22 +1,24 @@
 @import '../../../scss/colors';
+@import '../../../scss/variables';
+@import '../../../scss/zindex';
 
 .logout {
-  display: flex;
-  flex-grow: 1;
   font-size: 16px;
   font-weight: 700;
-  justify-content: flex-end;
+  margin-left: auto;
 }
 
 .navbar {
+  background-color: $white;
   border-top: 8px solid $cerulean;
   box-shadow: 4px 4px 10px 0 $lighten-darken;
   height: 100%;
   left: 0;
-  max-height: 70px;
+  max-height: $navbar-height;
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: map-get($zindex, navbar);
 }
 
 .navbar-components {
