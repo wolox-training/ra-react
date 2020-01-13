@@ -1,21 +1,15 @@
 import React from 'react';
 import { string, number } from 'prop-types';
+import { t } from 'i18next';
 
 import bookCoverImage from '../../assets/book-cover.png';
 import badgeImage from '../../assets/badge.png';
 
 import styles from './styles.module.scss';
 
-function BookDetail({
-  title = 'El gran pez',
-  genre = 'Ficción',
-  author = 'Borges',
-  editorial = 'Yellow',
-  publicationYear = 1985
-}) {
+function BookDetail({ title, genre, author, editorial, publicationYear }) {
   return (
     <div className={`column ${styles.container}`}>
-      {/* <a href="books.html" className="back">Atrás</a> */}
       <div className={`${styles.bookInformationContent} row background-white`}>
         <div className="position-relative row center">
           <img src={bookCoverImage} alt="Wolox book cover" className={styles.woloxBookCoverImage} />
@@ -29,13 +23,14 @@ function BookDetail({
             </span>
           </h1>
           <p className={`${styles.field} ${styles.bold}`}>
-            Autor del libro: <span className={styles.fieldDescription}>{author}</span>
+            {`${t('BookDetail:author')}:`} <span className={styles.fieldDescription}>{author}</span>
           </p>
           <p className={`${styles.field} ${styles.bold}`}>
-            Editorial: <span className={styles.fieldDescription}>{editorial}</span>
+            {`${t('BookDetail:editorial')}:`} <span className={styles.fieldDescription}>{editorial}</span>
           </p>
           <p className={`${styles.field} ${styles.bold}`}>
-            Año de publicación: <span className={styles.fieldDescription}>{publicationYear}</span>
+            {`${t('BookDetail:publicationYear')}:`}
+            <span className={styles.fieldDescription}>{publicationYear}</span>
           </p>
         </div>
       </div>
@@ -43,17 +38,12 @@ function BookDetail({
   );
 }
 
-// BookDetail.propTypes = {
-//   author: string.isRequired,
-//   editorial: string.isRequired,
-//   genre: string.isRequired,
-//   publicationYear: number.isRequired,
-//   title: string.isRequired
-//   // classNameName: string
-// };
-
-// BookDetail.defaultProps = {
-//   classNameName: ''
-// };
+BookDetail.propTypes = {
+  author: string.isRequired,
+  editorial: string.isRequired,
+  genre: string.isRequired,
+  publicationYear: number.isRequired,
+  title: string.isRequired
+};
 
 export default BookDetail;
