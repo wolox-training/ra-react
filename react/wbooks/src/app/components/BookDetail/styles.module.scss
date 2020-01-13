@@ -21,16 +21,27 @@
   padding: 25px 20px;
 }
 
-.field-description {
-  font-size: 14px;
-  color: $gray;
-}
-
 .container {
   margin: auto;
   max-width: 1000px;
   padding-top: 40px;
   width: 100%;
+}
+
+.field {
+  color: $black;
+  font-size: 19px;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+.field-description {
+  color: $gray;
+  font-size: 19px;
+}
+
+.genre {
+  margin-left: 10px;
 }
 
 .title {

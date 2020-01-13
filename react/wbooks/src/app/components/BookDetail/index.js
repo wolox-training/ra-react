@@ -24,7 +24,9 @@ function BookDetail({
         <div className={`column ${styles.bookDetails}`}>
           <h1 className={`${styles.title} ${styles.bold}`}>
             {title}
-            <span className={`${styles.fieldDescription} ${styles.bold}`}>{genre}</span>
+            <span className={`${styles.fieldDescription} ${styles.bold} ${styles.genre}`}>
+              {`(${genre})`}
+            </span>
           </h1>
           <p className={`${styles.field} ${styles.bold}`}>
             Autor del libro: <span className={styles.fieldDescription}>{author}</span>
