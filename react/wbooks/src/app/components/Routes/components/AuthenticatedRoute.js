@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect, Route, withRouter } from 'react-router-dom';
-import { bool, string, elementType } from 'prop-types';
+import { bool, elementType } from 'prop-types';
 
 import { Routes } from '../../../../constants';
 import store from '../../../../redux/store';
@@ -8,7 +8,7 @@ import store from '../../../../redux/store';
 const DEFAULT_PUBLIC_ROUTE = Routes.LOGIN_AND_HOME;
 const DEFAULT_PRIVATE_ROUTE = Routes.LOGIN_AND_HOME;
 
-function AuthenticatedRoute({ isPublicRoute, component: Comp, location, ...props }) {
+function AuthenticatedRoute({ isPublicRoute, component: Comp, ...props }) {
   return (
     <Route
       {...props}
@@ -20,8 +20,7 @@ function AuthenticatedRoute({ isPublicRoute, component: Comp, location, ...props
           return (
             <Redirect
               to={{
-                pathname: DEFAULT_PRIVATE_ROUTE,
-                state: { from: location }
+                pathname: DEFAULT_PRIVATE_ROUTE
               }}
             />
           );
@@ -29,8 +28,7 @@ function AuthenticatedRoute({ isPublicRoute, component: Comp, location, ...props
           return (
             <Redirect
               to={{
-                pathname: DEFAULT_PUBLIC_ROUTE,
-                state: { from: location }
+                pathname: DEFAULT_PUBLIC_ROUTE
               }}
             />
           );
@@ -48,7 +46,6 @@ AuthenticatedRoute.defaultProps = {
 
 AuthenticatedRoute.propTypes = {
   component: elementType.isRequired,
-  location: string.isRequired,
   isPublicRoute: bool
 };
 
