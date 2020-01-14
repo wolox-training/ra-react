@@ -7,7 +7,9 @@ import InputLabel from '../InputLabel';
 import ErrorMessages from '../ErrorMessages';
 import { login } from '../../../services/User/service';
 import { isArray } from '../../../utils/helpers';
-import { Routes, ACCESS_TOKEN } from '../../../constants';
+import { Routes } from '../../../constants';
+import store from '../../../redux/store';
+import authActionsCreators from '../../../redux/auth/actions';
 
 import styles from './styles.module.scss';
 import { LOGIN, SIGN_UP, FIELDS } from './constants';
@@ -20,7 +22,7 @@ class Login extends Component {
     try {
       const response = await login(this.state);
       this.setState({ isError: false, errorMessages: [] });
-      localStorage.setItem(ACCESS_TOKEN, response.access_token);
+      store.dispatch(authActionsCreators.setAccessToken(response.access_token));
       this.props.history.push(Routes.HOME);
     } catch (error) {
       this.setState({ isError: true, errorMessages: error.data.error });

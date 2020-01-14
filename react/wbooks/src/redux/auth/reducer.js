@@ -1,0 +1,18 @@
+import { actions } from './actions';
+
+const initialState = {
+  accessToken: null
+};
+
+function reducer(state = initialState, action) {
+  switch (action.type) {
+    case actions.SET_ACCESS_TOKEN:
+      return { ...state, accessToken: action.payload };
+    case actions.REMOVE_ACCESS_TOKEN:
+      return { ...state, accessToken: null };
+    default:
+      return state;
+  }
+}
+
+export default reducer;

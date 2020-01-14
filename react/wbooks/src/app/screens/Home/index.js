@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
 
 import { getBooks } from '../../../services/Book/service';
-import { ACCESS_TOKEN } from '../../../constants';
+import store from '../../../redux/store';
+import booksActionsCreators from '../../../redux/books/actions';
 
 import Home from './layout';
 
 class HomeContainer extends Component {
-  state = { books: [] };
+  state = { books: { books: [] } };
 
-  getBooks = () => getBooks(localStorage.getItem(ACCESS_TOKEN));
+  getBooks = () => getBooks(store.getState().auth.accessToken);
 
   componentDidMount() {
-    return this.getBooks().then(books =>
-      // eslint-disable-next-line react/no-did-mount-set-state
-      this.setState({ books })
-    );
+    store.subscribe(() => {
+      const { books } = store.getState();
+      this.setState({ books });
+    });
+    return this.getBooks().then(books => store.dispatch(booksActionsCreators.addBooks(books)));
   }
 
   render() {
-    return <Home books={this.state.books} />;
+    return <Home books={this.state.books.books} />;
   }
 }
 

@@ -2,15 +2,17 @@ import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { elementType } from 'prop-types';
 
-import { ACCESS_TOKEN } from '../../../../constants';
+import store from '../../../../redux/store';
 
 function HybridRoute({ publicComponent: PublicComp, privateComponent: PrivateComp, ...props }) {
   return (
     <Route
       {...props}
       render={routeProps => {
-        const userIsLogged = localStorage.getItem(ACCESS_TOKEN);
-        return userIsLogged ? <PrivateComp {...routeProps} /> : <PublicComp {...routeProps} />;
+        const {
+          auth: { accessToken }
+        } = store.getState();
+        return accessToken ? <PrivateComp {...routeProps} /> : <PublicComp {...routeProps} />;
       }}
     />
   );
