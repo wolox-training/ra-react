@@ -1,49 +1,12 @@
-import React from 'react';
-import { string, number } from 'prop-types';
-import { t } from 'i18next';
+import React, { Component } from 'react';
 
-import bookCoverImage from '../../assets/book-cover.png';
-import badgeImage from '../../assets/badge.png';
+import BookDetail from './layout';
 
-import styles from './styles.module.scss';
-
-function BookDetail({ title, genre, author, editorial, publicationYear }) {
-  return (
-    <div className={`column ${styles.container}`}>
-      <div className={`${styles.bookInformationContent} row background-white`}>
-        <div className="position-relative row center">
-          <img src={bookCoverImage} alt="Wolox book cover" className={styles.woloxBookCoverImage} />
-          <img src={badgeImage} alt="Badge" className={styles.badge} />
-        </div>
-        <div className={`column ${styles.bookDetails}`}>
-          <h1 className={`${styles.title} ${styles.bold}`}>
-            {title}
-            <span className={`${styles.fieldDescription} ${styles.bold} ${styles.genre}`}>
-              {`(${genre})`}
-            </span>
-          </h1>
-          <p className={`${styles.field} ${styles.bold}`}>
-            {`${t('BookDetail:author')}:`} <span className={styles.fieldDescription}>{author}</span>
-          </p>
-          <p className={`${styles.field} ${styles.bold}`}>
-            {`${t('BookDetail:editorial')}:`} <span className={styles.fieldDescription}>{editorial}</span>
-          </p>
-          <p className={`${styles.field} ${styles.bold}`}>
-            {`${t('BookDetail:publicationYear')}:`}
-            <span className={styles.fieldDescription}>{publicationYear}</span>
-          </p>
-        </div>
-      </div>
-    </div>
-  );
+class BookDetailContainer extends Component {
+  render() {
+    const { title, genre, author, editorial, publicationYear } = this.props.location.state;
+    return <BookDetail title={title} author={author} genre={genre} />;
+  }
 }
 
-BookDetail.propTypes = {
-  author: string.isRequired,
-  editorial: string.isRequired,
-  genre: string.isRequired,
-  publicationYear: number.isRequired,
-  title: string.isRequired
-};
-
-export default BookDetail;
+export default BookDetailContainer;
