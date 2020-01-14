@@ -3,6 +3,8 @@ import store from '@redux/store';
 import Navbar from '@components/Navbar';
 import Footer from '@components/Footer';
 
+import booksActionsCreators from '../../../redux/book/actions';
+
 import Book from './components/Book';
 import Search from './components/Search';
 import ShoppingCart from './components/ShoppingCart';
@@ -11,28 +13,33 @@ import styles from './styles.scss';
 class App extends Component {
   state = {
     books: [],
-    bookSelected: []
+    bookSelected: [],
+    booksQuantity: {}
   };
 
   componentDidMount() {
     store.subscribe(() => {
-      const { books, bookSelected } = store.getState();
-      this.setState({ books, bookSelected });
+      const { books, bookSelected, booksQuantity } = store.getState();
+      this.setState({ books, bookSelected, booksQuantity });
     });
-    // TODO to implement the dispatch
+    store.dispatch(booksActionsCreators.getBooks());
   }
 
-  // TODO to implement the dispatch
-  onSearch = value => {};
+  onSearch = value => {
+    store.dispatch(booksActionsCreators.searchBook(value));
+  };
 
-  // TODO to implement the dispatch
-  addToCart = item => {};
+  addToCart = item => {
+    store.dispatch(booksActionsCreators.addToCart(item));
+  };
 
-  // TODO to implement the dispatch
-  addItem = itemId => {};
+  addItem = itemId => {
+    store.dispatch(booksActionsCreators.addItem(itemId));
+  };
 
-  // TODO to implement the dispatch
-  removeItem = itemId => {};
+  removeItem = itemId => {
+    store.dispatch(booksActionsCreators.removeItem(itemId));
+  };
 
   CONFIGURATION_BUTTON = {
     add: {
@@ -67,7 +74,14 @@ class App extends Component {
           )}
         </div>
         {this.state.bookSelected.length ? (
-          <ShoppingCart data={this.state.bookSelected} addItem={this.addItem} removeItem={this.removeItem} />
+          <ShoppingCart
+            data={this.state.bookSelected.map(book => ({
+              ...book,
+              quantity: this.state.booksQuantity[book.id]
+            }))}
+            addItem={this.addItem}
+            removeItem={this.removeItem}
+          />
         ) : null}
         <Footer />
       </Fragment>

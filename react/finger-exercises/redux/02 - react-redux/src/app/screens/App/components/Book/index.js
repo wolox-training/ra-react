@@ -13,7 +13,7 @@ class Book extends PureComponent {
     if (configButton.isDanger) {
       configButton.function(id);
     } else {
-      configButton.function({ id, name, quantity: 1 });
+      configButton.function({ id, name });
     }
   };
 
