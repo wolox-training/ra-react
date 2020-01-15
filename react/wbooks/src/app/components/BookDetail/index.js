@@ -22,7 +22,7 @@ class BookDetailContainer extends Component {
 
   render() {
     const { title, author } = this.props.location.state;
-    const { publicationYear, editorial, genre } = this.state.book;
+    const { publicationYear, editorial, genre, imageUrl } = this.state.book;
 
     return (
       <BookDetail
@@ -31,6 +31,7 @@ class BookDetailContainer extends Component {
         genre={genre}
         editorial={editorial}
         publicationYear={publicationYear}
+        imageUrl={imageUrl}
       />
     );
   }

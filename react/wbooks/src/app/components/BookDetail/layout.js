@@ -7,12 +7,16 @@ import badgeImage from '../../assets/badge.png';
 
 import styles from './styles.module.scss';
 
-function BookDetail({ title, genre, author, editorial, publicationYear }) {
+function BookDetail({ title, genre, author, editorial, publicationYear, imageUrl }) {
   return (
     <div className={`column ${styles.container}`}>
       <div className={`${styles.bookInformationContent} row background-white`}>
         <div className="position-relative row center">
-          <img src={bookCoverImage} alt="Wolox book cover" className={styles.woloxBookCoverImage} />
+          <img
+            src={imageUrl || bookCoverImage}
+            alt="Wolox book cover"
+            className={styles.woloxBookCoverImage}
+          />
           <img src={badgeImage} alt="Badge" className={styles.badge} />
         </div>
         <div className={`column ${styles.bookDetails}`}>
@@ -43,7 +47,12 @@ BookDetail.propTypes = {
   editorial: string.isRequired,
   genre: string.isRequired,
   publicationYear: string.isRequired,
-  title: string.isRequired
+  title: string.isRequired,
+  imageUrl: string
+};
+
+BookDetail.defaultProps = {
+  imageUrl: ''
 };
 
 export default BookDetail;
