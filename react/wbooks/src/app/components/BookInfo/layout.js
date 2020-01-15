@@ -1,5 +1,5 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { string, func } from 'prop-types';
 
 import imagePlaceholder from '../../assets/book-cover.png';
 
@@ -17,6 +17,7 @@ function BookInfo({ title, author, className, handleOnClick }) {
 
 BookInfo.propTypes = {
   author: string.isRequired,
+  handleOnClick: func.isRequired,
   title: string.isRequired,
   className: string
 };
