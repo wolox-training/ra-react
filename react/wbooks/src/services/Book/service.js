@@ -9,3 +9,13 @@ export const getBooks = async (token, { author, genre, title, description } = {}
   }
   throw response;
 };
+
+export const getBook = async (token, id) => {
+  api.setHeader('Authorization', token);
+  const response = await api.get(`/books/${id}`);
+
+  if (response.ok) {
+    return response.data;
+  }
+  throw response;
+};

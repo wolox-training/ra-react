@@ -1,20 +1,31 @@
-/* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 import { shape, string, number } from 'prop-types';
+
+import store from '../../../redux/store';
+import booksActionsCreators from '../../../redux/books/actions';
 
 import BookDetail from './layout';
 
 class BookDetailContainer extends Component {
+  state = { book: {} };
+
+  componentDidMount() {
+    store.subscribe(() => {
+      const {
+        books: { book }
+      } = store.getState();
+      this.setState({ book });
+    });
+    const { id } = this.props.location.state;
+    store.dispatch(booksActionsCreators.getBook(id));
+  }
+
   render() {
-    const { title, genre, author, editorial, publicationYear } = this.props.location.state;
+    const { title, author } = this.props.location.state;
+    const { year, publisher, genre } = this.state.book;
+
     return (
-      <BookDetail
-        title={title}
-        author={author}
-        genre={genre}
-        editorial={editorial}
-        publicationYear={publicationYear}
-      />
+      <BookDetail title={title} author={author} genre={genre} editorial={publisher} publicationYear={year} />
     );
   }
 }
@@ -23,10 +34,8 @@ BookDetailContainer.propTypes = {
   location: shape({
     state: shape({
       title: string.isRequired,
-      genre: string.isRequired,
       author: string.isRequired,
-      editorial: string.isRequired,
-      publicationYear: number.isRequired
+      id: number.isRequired
     }).isRequired
   }).isRequired
 };

@@ -14,7 +14,7 @@ class BookInfoContainer extends Component {
       state: {
         title,
         author,
-        genre: 'magia'
+        id
       }
     });
   };

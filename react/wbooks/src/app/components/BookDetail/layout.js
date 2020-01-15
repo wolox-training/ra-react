@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, number } from 'prop-types';
+import { string } from 'prop-types';
 import { t } from 'i18next';
 
 import bookCoverImage from '../../assets/book-cover.png';
@@ -29,7 +29,7 @@ function BookDetail({ title, genre, author, editorial, publicationYear }) {
             {`${t('BookDetail:editorial')}:`} <span className={styles.fieldDescription}>{editorial}</span>
           </p>
           <p className={`${styles.field} ${styles.bold}`}>
-            {`${t('BookDetail:publicationYear')}:`}
+            {`${t('BookDetail:publicationYear')}: `}
             <span className={styles.fieldDescription}>{publicationYear}</span>
           </p>
         </div>
@@ -42,7 +42,7 @@ BookDetail.propTypes = {
   author: string.isRequired,
   editorial: string.isRequired,
   genre: string.isRequired,
-  publicationYear: number.isRequired,
+  publicationYear: string.isRequired,
   title: string.isRequired
 };
 
