@@ -22,10 +22,16 @@ class BookDetailContainer extends Component {
 
   render() {
     const { title, author } = this.props.location.state;
-    const { year, publisher, genre } = this.state.book;
+    const { publicationYear, editorial, genre } = this.state.book;
 
     return (
-      <BookDetail title={title} author={author} genre={genre} editorial={publisher} publicationYear={year} />
+      <BookDetail
+        title={title}
+        author={author}
+        genre={genre}
+        editorial={editorial}
+        publicationYear={publicationYear}
+      />
     );
   }
 }
