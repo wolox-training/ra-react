@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { createUser } from '../../../services/User/service';
+import { changeLang, LANGUAGES } from '../../config/i18n';
 
 import SignUp from './layout';
 
@@ -19,9 +20,20 @@ class SignUpContainer extends Component {
     }
   };
 
+  onHandleLanguageChangeClick = () => {
+    changeLang(LANGUAGES.EN);
+  };
+
   render() {
     const { errorMessages, isError } = this.state;
-    return <SignUp onSubmit={this.handleSubmit} errorMessages={errorMessages} isError={isError} />;
+    return (
+      <SignUp
+        onSubmit={this.handleSubmit}
+        errorMessages={errorMessages}
+        isError={isError}
+        handleLanguageChangeClick={this.onHandleLanguageChangeClick}
+      />
+    );
   }
 }
 

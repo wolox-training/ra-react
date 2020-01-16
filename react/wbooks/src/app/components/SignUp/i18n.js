@@ -5,3 +5,9 @@ i18next.addResources('es', 'SignUp', {
   lastname: 'Apellido',
   passwordConfirmation: 'Confirmación de Password'
 });
+
+i18next.addResources('en', 'SignUp', {
+  name: 'Name',
+  lastname: 'Lastname',
+  passwordConfirmation: 'Password Confirmation'
+});
