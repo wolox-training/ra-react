@@ -17,6 +17,7 @@
     "redux": "^4.0.5",
     "redux-form": "^8.2.6",
     "redux-form-validators": "^3.3.2",
+    "redux-recompose": "^2.2.0",
     "redux-thunk": "^2.3.0",
     "wolox-equalizer": "0.0.3"
   },
