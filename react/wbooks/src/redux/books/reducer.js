@@ -11,6 +11,8 @@ function reducer(state = initialState, action) {
       return { ...state, books: action.payload };
     case actions.ADD_BOOK:
       return { ...state, book: action.payload };
+    case actions.REMOVE_BOOK:
+      return { ...state, book: {} };
     default:
       return state;
   }

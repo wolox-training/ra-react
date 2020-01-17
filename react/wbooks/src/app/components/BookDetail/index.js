@@ -20,6 +20,10 @@ class BookDetailContainer extends Component {
     store.dispatch(booksActionsCreators.getBook(id));
   }
 
+  componentWillUnmount() {
+    store.dispatch(booksActionsCreators.removeBook());
+  }
+
   render() {
     const { title, author } = this.props.location.state;
     const { publicationYear, editorial, genre, imageUrl } = this.state.book;

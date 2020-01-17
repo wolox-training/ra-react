@@ -20,19 +20,17 @@ function BookDetail({ title, genre, author, editorial, publicationYear, imageUrl
           <img src={badgeImage} alt="Badge" className={styles.badge} />
         </div>
         <div className={`column ${styles.bookDetails}`}>
-          <h1 className={`${styles.title} ${styles.bold}`}>
+          <h1 className={`${styles.title} bold}`}>
             {title}
-            <span className={`${styles.fieldDescription} ${styles.bold} ${styles.genre}`}>
-              {`(${genre})`}
-            </span>
+            <span className={`${styles.fieldDescription} bold ${styles.genre}`}>{`(${genre})`}</span>
           </h1>
-          <p className={`${styles.field} ${styles.bold}`}>
+          <p className={`${styles.field} bold`}>
             {`${t('BookDetail:author')}:`} <span className={styles.fieldDescription}>{author}</span>
           </p>
-          <p className={`${styles.field} ${styles.bold}`}>
+          <p className={`${styles.field} bold`}>
             {`${t('BookDetail:editorial')}:`} <span className={styles.fieldDescription}>{editorial}</span>
           </p>
-          <p className={`${styles.field} ${styles.bold}`}>
+          <p className={`${styles.field} bold`}>
             {`${t('BookDetail:publicationYear')}: `}
             <span className={styles.fieldDescription}>{publicationYear}</span>
           </p>
