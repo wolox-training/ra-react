@@ -3,3 +3,5 @@ export const Routes = {
   SIGN_UP: '/sign_up',
   BOOK_DETAIL: '/books/:id'
 };
+
+export const LANGUAGE = 'language';

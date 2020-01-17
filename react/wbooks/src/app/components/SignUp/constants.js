@@ -23,3 +23,5 @@ export const FIELDS = {
 };
 export const LOGIN = 'Login';
 export const SIGN_UP = 'Sign Up';
+export const EN = 'EN';
+export const ES = 'ES';

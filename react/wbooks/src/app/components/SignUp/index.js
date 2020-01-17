@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { createUser } from '../../../services/User/service';
-import { changeLang, LANGUAGES } from '../../config/i18n';
+import { LANGUAGE } from '../../../constants';
 
 import SignUp from './layout';
 
@@ -20,8 +20,9 @@ class SignUpContainer extends Component {
     }
   };
 
-  onHandleLanguageChangeClick = () => {
-    changeLang(LANGUAGES.EN);
+  onHandleLanguageChangeClick = language => {
+    localStorage.setItem(LANGUAGE, language);
+    window.location.reload(false);
   };
 
   render() {
