@@ -20,14 +20,16 @@ function SignUp({ handleSubmit, errorMessages, isError, handleLanguageChangeClic
         <button
           type="button"
           className={styles.esButton}
-          onClick={() => handleLanguageChangeClick(LANGUAGES.ES)}
+          data-lang={LANGUAGES.ES}
+          onClick={handleLanguageChangeClick}
         >
           {ES}
         </button>
         <button
           type="button"
           className={styles.enButton}
-          onClick={() => handleLanguageChangeClick(LANGUAGES.EN)}
+          data-lang={LANGUAGES.EN}
+          onClick={handleLanguageChangeClick}
         >
           {EN}
         </button>
