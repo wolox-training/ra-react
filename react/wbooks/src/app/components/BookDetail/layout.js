@@ -1,13 +1,15 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { string, bool } from 'prop-types';
 import { t } from 'i18next';
+import Skeleton from 'react-skeleton-loader';
 
 import bookCoverImage from '../../assets/book-cover.png';
 import badgeImage from '../../assets/badge.png';
 
 import styles from './styles.module.scss';
+import { SKELETONS_WIDTH } from './constants';
 
-function BookDetail({ title, genre, author, editorial, publicationYear, imageUrl }) {
+function BookDetail({ title, genre, author, editorial, publicationYear, imageUrl, bookObtained }) {
   return (
     <div className={`column ${styles.container}`}>
       <div className={`${styles.bookInformationContent} row background-white`}>
@@ -20,21 +22,44 @@ function BookDetail({ title, genre, author, editorial, publicationYear, imageUrl
           <img src={badgeImage} alt="Badge" className={styles.badge} />
         </div>
         <div className={`column ${styles.bookDetails}`}>
-          <h1 className={`${styles.title} ${styles.bold}`}>
-            {title}
-            <span className={`${styles.fieldDescription} ${styles.bold} ${styles.genre}`}>
-              {`(${genre})`}
-            </span>
+          <h1 className={`${styles.title} bold}`}>
+            {bookObtained ? (
+              <>
+                {title}
+                <span className={`${styles.fieldDescription} bold ${styles.genre}`}>{`(${genre})`}</span>
+              </>
+            ) : (
+              <Skeleton width={`${SKELETONS_WIDTH.titleAndGenre}px`} />
+            )}
           </h1>
-          <p className={`${styles.field} ${styles.bold}`}>
-            {`${t('BookDetail:author')}:`} <span className={styles.fieldDescription}>{author}</span>
+          <p className={`${styles.field} bold`}>
+            {bookObtained ? (
+              <>
+                {`${t('BookDetail:author')}: `}
+                <span className={styles.fieldDescription}>{author}</span>
+              </>
+            ) : (
+              <Skeleton width={`${SKELETONS_WIDTH.fields}px`} />
+            )}
           </p>
-          <p className={`${styles.field} ${styles.bold}`}>
-            {`${t('BookDetail:editorial')}:`} <span className={styles.fieldDescription}>{editorial}</span>
+          <p className={`${styles.field} bold`}>
+            {bookObtained ? (
+              <>
+                {`${t('BookDetail:editorial')}:`} <span className={styles.fieldDescription}>{editorial}</span>
+              </>
+            ) : (
+              <Skeleton width={`${SKELETONS_WIDTH.fields}px`} />
+            )}
           </p>
-          <p className={`${styles.field} ${styles.bold}`}>
-            {`${t('BookDetail:publicationYear')}: `}
-            <span className={styles.fieldDescription}>{publicationYear}</span>
+          <p className={`${styles.field} bold`}>
+            {bookObtained ? (
+              <>
+                {`${t('BookDetail:publicationYear')}: `}
+                <span className={styles.fieldDescription}>{publicationYear}</span>
+              </>
+            ) : (
+              <Skeleton width={`${SKELETONS_WIDTH.fields}px`} />
+            )}
           </p>
         </div>
       </div>
@@ -43,16 +68,22 @@ function BookDetail({ title, genre, author, editorial, publicationYear, imageUrl
 }
 
 BookDetail.propTypes = {
-  author: string.isRequired,
-  editorial: string.isRequired,
-  genre: string.isRequired,
-  publicationYear: string.isRequired,
-  title: string.isRequired,
-  imageUrl: string
+  bookObtained: bool.isRequired,
+  author: string,
+  editorial: string,
+  genre: string,
+  imageUrl: string,
+  publicationYear: string,
+  title: string
 };
 
 BookDetail.defaultProps = {
-  imageUrl: ''
+  author: '',
+  editorial: '',
+  genre: '',
+  imageUrl: '',
+  publicationYear: '',
+  title: ''
 };
 
 export default BookDetail;

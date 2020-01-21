@@ -20,7 +20,8 @@ class SignUpContainer extends Component {
     }
   };
 
-  onHandleLanguageChangeClick = language => {
+  onHandleLanguageChangeClick = event => {
+    const language = event.target.dataset.lang;
     localStorage.setItem(LANGUAGE, language);
     window.location.reload(false);
   };

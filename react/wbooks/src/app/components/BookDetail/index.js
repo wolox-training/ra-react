@@ -7,22 +7,27 @@ import booksActionsCreators from '../../../redux/books/actions';
 import BookDetail from './layout';
 
 class BookDetailContainer extends Component {
-  state = { book: {} };
+  state = { book: {}, bookObtained: false };
 
   componentDidMount() {
     store.subscribe(() => {
       const {
-        books: { book }
+        books: { book, bookObtained }
       } = store.getState();
-      this.setState({ book });
+      this.setState({ book, bookObtained });
     });
     const { id } = this.props.location.state;
     store.dispatch(booksActionsCreators.getBook(id));
   }
 
+  componentWillUnmount() {
+    store.dispatch(booksActionsCreators.removeBook());
+  }
+
   render() {
     const { title, author } = this.props.location.state;
-    const { publicationYear, editorial, genre, imageUrl } = this.state.book;
+    const { book, bookObtained } = this.state;
+    const { publicationYear, editorial, genre, imageUrl } = book;
 
     return (
       <BookDetail
@@ -32,6 +37,7 @@ class BookDetailContainer extends Component {
         editorial={editorial}
         publicationYear={publicationYear}
         imageUrl={imageUrl}
+        bookObtained={bookObtained}
       />
     );
   }
