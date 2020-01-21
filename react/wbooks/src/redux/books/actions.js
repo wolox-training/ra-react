@@ -4,7 +4,8 @@ export const actions = {
   ADD_BOOKS: '@@BOOKS/ADD_BOOKS',
   GET_BOOKS: '@@BOOKS/GET_BOOKS',
   ADD_BOOK: '@@BOOKS/ADD_BOOK',
-  GET_BOOK: '@@BOOKS/GET_BOOK'
+  GET_BOOK: '@@BOOKS/GET_BOOK',
+  REMOVE_BOOK: '@@BOOKS/REMOVE_BOOK'
 };
 
 export default {
@@ -31,5 +32,8 @@ export default {
       type: actions.ADD_BOOK,
       payload: book
     });
-  }
+  },
+  removeBook: () => ({
+    type: actions.REMOVE_BOOK
+  })
 };

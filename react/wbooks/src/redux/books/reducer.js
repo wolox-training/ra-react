@@ -2,7 +2,8 @@ import { actions } from './actions';
 
 const initialState = {
   books: [],
-  book: {}
+  book: {},
+  bookObtained: false
 };
 
 function reducer(state = initialState, action) {
@@ -10,7 +11,9 @@ function reducer(state = initialState, action) {
     case actions.ADD_BOOKS:
       return { ...state, books: action.payload };
     case actions.ADD_BOOK:
-      return { ...state, book: action.payload };
+      return { ...state, book: action.payload, bookObtained: true };
+    case actions.REMOVE_BOOK:
+      return { ...state, book: {}, bookObtained: false };
     default:
       return state;
   }
