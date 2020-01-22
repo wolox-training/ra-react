@@ -10,7 +10,7 @@ class BookDetailContainer extends Component {
   state = { book: {}, bookObtained: false };
 
   componentDidMount() {
-    store.subscribe(() => {
+    this.unsubscribe = store.subscribe(() => {
       const {
         books: { book, bookObtained }
       } = store.getState();
@@ -22,6 +22,7 @@ class BookDetailContainer extends Component {
 
   componentWillUnmount() {
     store.dispatch(booksActionsCreators.removeBook());
+    this.unsubscribe();
   }
 
   render() {
