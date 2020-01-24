@@ -29,7 +29,7 @@ function BookDetail({ title, genre, author, editorial, publicationYear, imageUrl
                 <span className={`${styles.fieldDescription} bold ${styles.genre}`}>{`(${genre})`}</span>
               </>
             ) : (
-              <Skeleton width={`${SKELETONS_WIDTH.titleAndGenre}px`} />
+              <Skeleton width={SKELETONS_WIDTH.titleAndGenre} />
             )}
           </h1>
           <p className={`${styles.field} bold`}>
@@ -39,7 +39,7 @@ function BookDetail({ title, genre, author, editorial, publicationYear, imageUrl
                 <span className={styles.fieldDescription}>{author}</span>
               </>
             ) : (
-              <Skeleton width={`${SKELETONS_WIDTH.fields}px`} />
+              <Skeleton width={SKELETONS_WIDTH.fields} />
             )}
           </p>
           <p className={`${styles.field} bold`}>
@@ -48,7 +48,7 @@ function BookDetail({ title, genre, author, editorial, publicationYear, imageUrl
                 {`${t('BookDetail:editorial')}:`} <span className={styles.fieldDescription}>{editorial}</span>
               </>
             ) : (
-              <Skeleton width={`${SKELETONS_WIDTH.fields}px`} />
+              <Skeleton width={SKELETONS_WIDTH.fields} />
             )}
           </p>
           <p className={`${styles.field} bold`}>
@@ -58,7 +58,7 @@ function BookDetail({ title, genre, author, editorial, publicationYear, imageUrl
                 <span className={styles.fieldDescription}>{publicationYear}</span>
               </>
             ) : (
-              <Skeleton width={`${SKELETONS_WIDTH.fields}px`} />
+              <Skeleton width={SKELETONS_WIDTH.fields} />
             )}
           </p>
         </div>
