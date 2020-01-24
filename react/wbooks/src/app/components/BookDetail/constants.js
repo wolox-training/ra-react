@@ -1,4 +1,4 @@
 export const SKELETONS_WIDTH = {
-  titleAndGenre: 400,
-  fields: 300
+  titleAndGenre: '400px',
+  fields: '300px'
 };

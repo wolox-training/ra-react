@@ -27,8 +27,10 @@ class BookDetailContainer extends Component {
 
   render() {
     const { title, author } = this.props.location.state;
-    const { book, bookObtained } = this.state;
-    const { publicationYear, editorial, genre, imageUrl } = book;
+    const {
+      book: { publicationYear, editorial, genre, imageUrl },
+      bookObtained
+    } = this.state;
 
     return (
       <BookDetail
