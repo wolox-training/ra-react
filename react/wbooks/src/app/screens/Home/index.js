@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import store from '../../../redux/store';
-import booksActionsCreators from '../../../redux/books/actions';
+import { actionCreators as booksActionsCreators } from '../../../redux/books/actions';
 
 import Home from './layout';
 

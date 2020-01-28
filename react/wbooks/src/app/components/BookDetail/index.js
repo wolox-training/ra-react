@@ -2,19 +2,20 @@ import React, { Component } from 'react';
 import { shape, string, number } from 'prop-types';
 
 import store from '../../../redux/store';
-import booksActionsCreators from '../../../redux/books/actions';
+import { actionCreators as booksActionsCreators } from '../../../redux/books/actions';
 
 import BookDetail from './layout';
 
 class BookDetailContainer extends Component {
-  state = { book: {}, bookObtained: false };
+  state = { book: {}, bookLoading: false };
 
   componentDidMount() {
     this.unsubscribe = store.subscribe(() => {
       const {
-        books: { book, bookObtained }
+        books: { book, bookLoading }
       } = store.getState();
-      this.setState({ book, bookObtained });
+      console.log('aaaaaaaaaaaaaaa', bookLoading);
+      this.setState({ book, bookLoading });
     });
     const { id } = this.props.location.state;
     store.dispatch(booksActionsCreators.getBook(id));
@@ -29,7 +30,7 @@ class BookDetailContainer extends Component {
     const { title, author } = this.props.location.state;
     const {
       book: { publicationYear, editorial, genre, imageUrl },
-      bookObtained
+      bookLoading
     } = this.state;
 
     return (
@@ -40,7 +41,7 @@ class BookDetailContainer extends Component {
         editorial={editorial}
         publicationYear={publicationYear}
         imageUrl={imageUrl}
-        bookObtained={bookObtained}
+        bookObtained={!bookLoading}
       />
     );
   }
