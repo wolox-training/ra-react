@@ -13,9 +13,9 @@ const initialState = completeState(initialStateDescription, [BOOKS]);
 
 const reducerDescription = {
   [actions.ADD_BOOKS]: (state, action) => ({ ...state, books: action.payload }),
-  [actions.ADD_BOOK]: (state, action) => ({ ...state, book: action.payload, bookLoading: false }),
-  [actions.REMOVE_BOOK]: (state, action) => ({ ...state, book: {} }),
-  [actions.PABLITO]: (state, action) => ({ ...state, bookLoading: true })
+  [actions.ADD_BOOK]: (state, action) => ({ ...state, book: action.payload }),
+  [actions.REMOVE_BOOK]: (state, action) => ({ ...state, book: {} })
+  // [actions.PABLITO]: (state, action) => ({ ...state, bookLoading: true })
 };
 
 const reducer = createReducer(new Immutable(initialState), reducerDescription);

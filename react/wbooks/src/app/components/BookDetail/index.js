@@ -14,11 +14,13 @@ class BookDetailContainer extends Component {
       const {
         books: { book, bookLoading }
       } = store.getState();
-      console.log('aaaaaaaaaaaaaaa', bookLoading);
       this.setState({ book, bookLoading });
     });
     const { id } = this.props.location.state;
-    store.dispatch(booksActionsCreators.getBook(id));
+    const {
+      auth: { accessToken }
+    } = store.getState();
+    store.dispatch(booksActionsCreators.getBook(id, accessToken));
   }
 
   componentWillUnmount() {
