@@ -3,7 +3,7 @@ import api from '../../app/config/api';
 import { bookSerializer } from './serializers';
 
 export const getBooks = async (accessToken, { author, genre, title, description } = {}) => {
-  api.setHeader('Authorization', accessToken);
+  // api.setHeader('Authorization', accessToken);
   const response = await api.get('/books', { author, genre, title, description });
 
   if (response.ok) {
@@ -13,13 +13,13 @@ export const getBooks = async (accessToken, { author, genre, title, description 
 };
 
 export const getBook = async ({ bookId, accessToken }) => {
-  console.log('bbbbbbbbbbbbbbbbbbbb', bookId, accessToken);
-  api.setHeader('Authorization', accessToken);
-  const response = await api.get(`/books/${bookId}`);
+  // api.setHeader('Authorization', accessToken);
+  console.log('FUUCK');
+  return api.get(`/books/${bookId}`);
 
-  if (response.ok) {
-    const book = bookSerializer.serialize(response.data);
-    return book;
-  }
-  throw response;
+  // if (response.ok) {
+  //   const book = bookSerializer.serialize(response.data);
+  //   return book;
+  // }
+  // throw response;
 };

@@ -1,3 +1,5 @@
+import api from "app/config/api";
+
 export const actions = {
   SET_ACCESS_TOKEN: '@@AUTH/SET_ACCESS_TOKEN',
   REMOVE_ACCESS_TOKEN: '@@AUTH/REMOVE_ACCESS_TOKEN'
@@ -10,5 +12,9 @@ export default {
   }),
   removeAccessToken: () => ({
     type: actions.REMOVE_ACCESS_TOKEN
-  })
+  }),
+  checkAuth: () => (_, getState) => {
+    const { accessToken } = getState().auth;
+    api.setHeader('Authorization', accessToken);
+  }
 };

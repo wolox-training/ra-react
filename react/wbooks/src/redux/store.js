@@ -1,11 +1,12 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { reducer as formReducer } from 'redux-form';
+import { fetchMiddleware } from 'redux-recompose';
 
 import books from './books/reducer';
 import auth from './auth/reducer';
 
-const middlewares = [thunk];
+const middlewares = [thunk, fetchMiddleware];
 const enhancers = [];
 enhancers.push(applyMiddleware(...middlewares));
 

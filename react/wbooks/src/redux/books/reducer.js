@@ -12,13 +12,15 @@ const initialStateDescription = {
 const initialState = completeState(initialStateDescription, [BOOKS]);
 
 const reducerDescription = {
-  [actions.ADD_BOOKS]: (state, action) => ({ ...state, books: action.payload }),
-  [actions.ADD_BOOK]: (state, action) => ({ ...state, book: action.payload }),
-  [actions.REMOVE_BOOK]: (state, action) => ({ ...state, book: {} })
-  // [actions.PABLITO]: (state, action) => ({ ...state, bookLoading: true })
+  primaryActions: [actions.GET_BOOK],
+  override: {
+    [actions.ADD_BOOKS]: (state, action) => ({ ...state, books: action.payload }),
+    [actions.REMOVE_BOOK]: (state, action) => ({ ...state, book: {} }),
+    [actions.ADD_BOOK]: (state, action) => ({ ...state, book: action.payload }),
+  }
 };
 
-const reducer = createReducer(new Immutable(initialState), reducerDescription);
+const reducer = createReducer(new Immutable(initialState), completeReducer(reducerDescription));
 
 export default reducer;
 
