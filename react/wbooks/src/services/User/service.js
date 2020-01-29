@@ -33,6 +33,5 @@ export const login = async ({ email, password }) => {
   if (response.ok) {
     return response.data;
   }
-
   throw response;
 };

@@ -1,4 +1,4 @@
-import { createTypes, completeTypes } from 'redux-recompose';
+import { createTypes, completeTypes, withSuccess } from 'redux-recompose';
 
 import { getBooks, getBook } from '../../services/Book/service';
 
@@ -6,7 +6,7 @@ import { bookSerializer } from './serializers';
 import { BOOKS, BOOK } from './constants';
 
 export const actions = createTypes(
-  completeTypes(['GET_BOOK'], ['ADD_BOOKS', 'GET_BOOKS', 'ADD_BOOK', 'REMOVE_BOOK']),
+  completeTypes(['GET_BOOK', 'GET_BOOKS'], ['ADD_BOOKS', 'REMOVE_BOOK']),
   '@@BOOKS'
 );
 
@@ -16,14 +16,18 @@ export const actionCreators = {
     target: BOOKS,
     payload: books
   }),
-  getBooks: () => async dispatch => {
-    const books = await getBooks();
-    dispatch(actionCreators.addBooks(books));
-  },
-  addBook: book => ({
-    type: actions.ADD_BOOK,
-    target: BOOK,
-    payload: book
+  getBooks: () => ({
+    type: actions.GET_BOOKS,
+    target: BOOKS,
+    service: getBooks
+    // successSelector: books => dispatch =>
+    //   dispatch({ type: actions.ADD_BOOKS, payload: books, target: BOOKS }),
+    // injections: [
+    //   withSuccess((dispatch, books) => {
+    //     console.log('oooooooooooooooooooooooo')
+    //     dispatch(actionCreators.addBooks(books));
+    //   })
+    // ]
   }),
   getBook: bookId => ({
     type: actions.GET_BOOK,

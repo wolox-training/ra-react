@@ -4,6 +4,7 @@ export const getBooks = async ({ author, genre, title, description } = {}) => {
   const response = await api.get('/books', { author, genre, title, description });
 
   if (response.ok) {
+    console.log('okkkkkkkkk', response.data);
     return response.data;
   }
   throw response;

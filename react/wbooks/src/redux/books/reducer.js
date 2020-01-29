@@ -9,30 +9,19 @@ const initialStateDescription = {
   [BOOK]: {}
 };
 
-const initialState = completeState(initialStateDescription, [BOOKS]);
+const initialState = completeState(initialStateDescription);
 
 const reducerDescription = {
-  primaryActions: [actions.GET_BOOK],
+  primaryActions: [actions.GET_BOOK, actions.GET_BOOKS],
   override: {
-    [actions.ADD_BOOKS]: (state, action) => ({ ...state, books: action.payload }),
-    [actions.REMOVE_BOOK]: state => ({ ...state, book: {} }),
-    [actions.ADD_BOOK]: (state, action) => ({ ...state, book: action.payload })
+    [actions.ADD_BOOKS]: (state, action) => {
+      console.log('bbbbbbbbbbbbbbbbbbbbbb');
+      return { ...state, books: action.payload };
+    },
+    [actions.REMOVE_BOOK]: state => ({ ...state, book: {} })
   }
 };
 
 const reducer = createReducer(new Immutable(initialState), completeReducer(reducerDescription));
 
 export default reducer;
-
-// function reducer(state = initialState, action) {
-//   switch (action.type) {
-//     case actions.ADD_BOOKS:
-//       return { ...state, books: action.payload };
-//     case actions.ADD_BOOK:
-//       return { ...state, book: action.payload, bookObtained: true };
-//     case actions.REMOVE_BOOK:
-//       return { ...state, book: {}, bookObtained: false };
-//     default:
-//       return state;
-//   }
-// }
