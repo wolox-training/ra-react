@@ -8,13 +8,32 @@ import woloxLogoImage from '../../assets/wolox-logo.png';
 import InputLabel from '../InputLabelStateless';
 import ErrorMessages from '../ErrorMessages';
 import { Routes } from '../../../constants';
+import { LANGUAGES } from '../../config/i18n';
 
 import styles from './styles.module.scss';
-import { LOGIN, SIGN_UP, FIELDS } from './constants';
+import { LOGIN, SIGN_UP, FIELDS, EN, ES } from './constants';
 
-function SignUp({ handleSubmit, errorMessages, isError }) {
+function SignUp({ handleSubmit, errorMessages, isError, handleLanguageChangeClick }) {
   return (
     <div className={`${styles.container} column background-wild-sand`}>
+      <div className="row">
+        <button
+          type="button"
+          className={styles.esButton}
+          data-lang={LANGUAGES.ES}
+          onClick={handleLanguageChangeClick}
+        >
+          {ES}
+        </button>
+        <button
+          type="button"
+          className={styles.enButton}
+          data-lang={LANGUAGES.EN}
+          onClick={handleLanguageChangeClick}
+        >
+          {EN}
+        </button>
+      </div>
       <img src={woloxLogoImage} alt="Wolox logo" className={styles.woloxLogoImage} />
       <form onSubmit={handleSubmit} className={`${styles.signUpForm} m-bottom-3`}>
         {Object.keys(FIELDS).map(field => (
@@ -45,6 +64,7 @@ function SignUp({ handleSubmit, errorMessages, isError }) {
 
 SignUp.propTypes = {
   errorMessages: array.isRequired, // eslint-disable-line react/forbid-prop-types
+  handleLanguageChangeClick: func.isRequired,
   handleSubmit: func.isRequired,
   isError: bool.isRequired
 };
