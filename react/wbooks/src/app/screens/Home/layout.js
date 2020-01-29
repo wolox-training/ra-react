@@ -17,7 +17,7 @@ function Home({ books }) {
       {booksAvailable ? (
         <div className={`row ${styles.booksContainer}`}>
           {books.map(({ author, title, id }) => (
-            <BookInfo author={author} title={title} className="m-right-7 m-bottom-7" key={id} />
+            <BookInfo author={author} title={title} id={id} className="m-right-7 m-bottom-7" key={id} />
           ))}
         </div>
       ) : (

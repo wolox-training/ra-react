@@ -9,11 +9,15 @@ class HomeContainer extends Component {
   state = { books: { books: [] } };
 
   componentDidMount() {
-    store.subscribe(() => {
+    this.unsubscribe = store.subscribe(() => {
       const { books } = store.getState();
       this.setState({ books });
     });
     store.dispatch(booksActionsCreators.getBooks());
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
   }
 
   render() {

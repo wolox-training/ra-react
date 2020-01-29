@@ -1,0 +1,54 @@
+@import '../../../scss/colors';
+
+.badge {
+  position: absolute;
+  right: 15px;
+  top: -15px;
+  transform: rotate(15deg);
+  width: 94px;
+}
+
+.book-details {
+  flex-grow: 1;
+}
+
+.book-information-content {
+  box-shadow: 4px 4px 10px 0 $lighten-darken;
+  padding: 25px 20px;
+}
+
+.container {
+  margin: auto;
+  max-width: 1000px;
+  padding-top: 40px;
+  width: 100%;
+}
+
+.field {
+  color: $black;
+  font-size: 19px;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+.field-description {
+  color: $gray;
+  font-size: 19px;
+}
+
+.genre {
+  margin-left: 10px;
+}
+
+.title {
+  border-bottom: 4px solid $earls-green;
+  color: $black;
+  font-size: 32px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.wolox-book-cover-image {
+  margin-right: 40px;
+  width: 261px;
+}
