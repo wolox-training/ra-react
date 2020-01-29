@@ -15,8 +15,8 @@ const reducerDescription = {
   primaryActions: [actions.GET_BOOK],
   override: {
     [actions.ADD_BOOKS]: (state, action) => ({ ...state, books: action.payload }),
-    [actions.REMOVE_BOOK]: (state, action) => ({ ...state, book: {} }),
-    [actions.ADD_BOOK]: (state, action) => ({ ...state, book: action.payload }),
+    [actions.REMOVE_BOOK]: state => ({ ...state, book: {} }),
+    [actions.ADD_BOOK]: (state, action) => ({ ...state, book: action.payload })
   }
 };
 

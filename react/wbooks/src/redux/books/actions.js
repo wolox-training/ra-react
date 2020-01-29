@@ -1,10 +1,10 @@
-import { createTypes, withSuccess, completeTypes } from 'redux-recompose';
+import { createTypes, completeTypes } from 'redux-recompose';
 
 import { getBooks, getBook } from '../../services/Book/service';
-import {bookSerializer} from './serializers';
+
+import { bookSerializer } from './serializers';
 import { BOOKS, BOOK } from './constants';
 
-const types = ['ADD_BOOKS', 'GET_BOOKS', 'ADD_BOOK', 'GET_BOOK', 'REMOVE_BOOK', 'PABLITO'];
 export const actions = createTypes(
   completeTypes(['GET_BOOK'], ['ADD_BOOKS', 'GET_BOOKS', 'ADD_BOOK', 'REMOVE_BOOK']),
   '@@BOOKS'
@@ -30,7 +30,7 @@ export const actionCreators = {
     target: BOOK,
     service: getBook,
     payload: { bookId },
-    successSelector: (response) => bookSerializer.serialize(response.data),
+    successSelector: response => bookSerializer.serialize(response.data)
   }),
   // async (dispatch, getState) => {
   //   const book = await getBook(getState().auth.accessToken, bookId);

@@ -1,4 +1,4 @@
-import api from "app/config/api";
+import api from '../../app/config/api';
 
 export const actions = {
   SET_ACCESS_TOKEN: '@@AUTH/SET_ACCESS_TOKEN',

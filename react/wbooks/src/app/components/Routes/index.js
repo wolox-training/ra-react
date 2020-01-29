@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch } from 'react-redux';
 
+import authActionsCreators from '../../../redux/auth/actions';
 import { Routes } from '../../../constants';
 import SignUp from '../SignUp';
 import Login from '../Login';
@@ -10,11 +11,10 @@ import BookDetail from '../BookDetail';
 
 import AuthenticatedRoute from './components/AuthenticatedRoute';
 import HybridRoute from './components/HybridRoute';
-import actionCreators from 'redux/auth/actions';
 
 function AppRoutes() {
   const dispatch = useDispatch();
-  dispatch(actionCreators.checkAuth());
+  dispatch(authActionsCreators.checkAuth());
   return (
     <Router>
       <Switch>
