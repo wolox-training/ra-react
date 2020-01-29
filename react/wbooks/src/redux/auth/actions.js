@@ -1,4 +1,4 @@
-import api from '../../app/config/api';
+import { useDispatch } from 'react-redux';
 
 export const actions = {
   SET_ACCESS_TOKEN: '@@AUTH/SET_ACCESS_TOKEN',
@@ -15,6 +15,6 @@ export default {
   }),
   checkAuth: () => (_, getState) => {
     const { accessToken } = getState().auth;
-    api.setHeader('Authorization', accessToken);
+    useDispatch()({ type: actions.SET_ACCESS_TOKEN, payload: accessToken });
   }
 };

@@ -16,8 +16,8 @@ export const actionCreators = {
     target: BOOKS,
     payload: books
   }),
-  getBooks: () => async (dispatch, getState) => {
-    const books = await getBooks(getState().auth.accessToken);
+  getBooks: () => async dispatch => {
+    const books = await getBooks();
     dispatch(actionCreators.addBooks(books));
   },
   addBook: book => ({
@@ -29,13 +29,9 @@ export const actionCreators = {
     type: actions.GET_BOOK,
     target: BOOK,
     service: getBook,
-    payload: { bookId },
+    payload: bookId,
     successSelector: response => bookSerializer.serialize(response.data)
   }),
-  // async (dispatch, getState) => {
-  //   const book = await getBook(getState().auth.accessToken, bookId);
-  //   dispatch(actionCreators.addBook(book));
-  // },
   removeBook: () => ({
     type: actions.REMOVE_BOOK,
     target: BOOK

@@ -17,10 +17,7 @@ class BookDetailContainer extends Component {
       this.setState({ book, bookLoading });
     });
     const { id } = this.props.location.state;
-    const {
-      auth: { accessToken }
-    } = store.getState();
-    store.dispatch(booksActionsCreators.getBook(id, accessToken));
+    store.dispatch(booksActionsCreators.getBook(id));
   }
 
   componentWillUnmount() {

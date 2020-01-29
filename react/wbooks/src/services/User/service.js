@@ -31,11 +31,8 @@ export const login = async ({ email, password }) => {
   });
 
   if (response.ok) {
-    console.log(response);
-    api.setHeader('Authorization', response.data.access_token);
-    localStorage.setItem('accessToken', response.data.access_token);
-    api.setHeaders;
     return response.data;
   }
+
   throw response;
 };
