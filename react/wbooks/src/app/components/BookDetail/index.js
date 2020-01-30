@@ -1,28 +1,15 @@
 import React, { Component } from 'react';
-import { shape, string, number } from 'prop-types';
+import { shape, string, number, bool, func } from 'prop-types';
+import { connect } from 'react-redux';
 
-import store from '../../../redux/store';
 import { actionCreators as booksActionsCreators } from '../../../redux/books/actions';
 
 import BookDetail from './layout';
 
 class BookDetailContainer extends Component {
-  state = { book: {}, bookLoading: false };
-
   componentDidMount() {
-    this.unsubscribe = store.subscribe(() => {
-      const {
-        books: { book, bookLoading }
-      } = store.getState();
-      this.setState({ book, bookLoading });
-    });
     const { id } = this.props.location.state;
-    store.dispatch(booksActionsCreators.getBook(id));
-  }
-
-  componentWillUnmount() {
-    store.dispatch(booksActionsCreators.removeBook());
-    this.unsubscribe();
+    this.props.getBook(id);
   }
 
   render() {
@@ -30,7 +17,7 @@ class BookDetailContainer extends Component {
     const {
       book: { publicationYear, editorial, genre, imageUrl },
       bookLoading
-    } = this.state;
+    } = this.props;
 
     return (
       <BookDetail
@@ -47,6 +34,9 @@ class BookDetailContainer extends Component {
 }
 
 BookDetailContainer.propTypes = {
+  book: shape({ publicationYear: string, editorial: string, genre: string, imageUrl: string }).isRequired,
+  bookLoading: bool.isRequired,
+  getBook: func.isRequired,
   location: shape({
     state: shape({
       title: string.isRequired,
@@ -56,4 +46,13 @@ BookDetailContainer.propTypes = {
   }).isRequired
 };
 
-export default BookDetailContainer;
+const mapStateToProps = state => ({
+  book: state.books.book,
+  bookLoading: state.books.bookLoading
+});
+
+const mapDispatchToProps = dispatch => ({
+  getBook: id => dispatch(booksActionsCreators.getBook(id))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookDetailContainer);
