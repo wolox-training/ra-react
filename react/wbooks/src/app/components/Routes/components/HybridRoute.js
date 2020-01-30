@@ -12,14 +12,14 @@ function HybridRoute({ publicComponent: PublicComp, privateComponent: PrivateCom
   );
 }
 
+HybridRoute.defaultProps = {
+  accessToken: ''
+};
+
 HybridRoute.propTypes = {
   privateComponent: elementType.isRequired,
   publicComponent: elementType.isRequired,
   accessToken: string
-};
-
-HybridRoute.defaultProps = {
-  accessToken: ''
 };
 
 const mapStateToProps = state => ({
