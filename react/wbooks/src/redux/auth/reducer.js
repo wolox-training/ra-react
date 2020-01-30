@@ -4,7 +4,7 @@ import api from '../../app/config/api';
 import { actions } from './actions';
 
 const initialState = {
-  accessToken: localStorage.getItem('accessToken')
+  accessToken: localStorage.getItem('accessToken') || ''
 };
 
 function reducer(state = initialState, action) {
@@ -12,7 +12,7 @@ function reducer(state = initialState, action) {
     case actions.SET_ACCESS_TOKEN:
       const accessToken = action.payload;
       api.setHeader('Authorization', accessToken);
-      localStorage.setItem('accessToken', accessToken);
+      localStorage.setItem('accessToken', accessToken || '');
       return { ...state, accessToken };
     case actions.REMOVE_ACCESS_TOKEN:
       localStorage.removeItem('accessToken');

@@ -1,26 +1,29 @@
 import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
-import { elementType } from 'prop-types';
+import { elementType, string } from 'prop-types';
+import { connect } from 'react-redux';
 
-import store from '../../../../redux/store';
-
-function HybridRoute({ publicComponent: PublicComp, privateComponent: PrivateComp, ...props }) {
+function HybridRoute({ publicComponent: PublicComp, privateComponent: PrivateComp, accessToken, ...props }) {
   return (
     <Route
       {...props}
-      render={routeProps => {
-        const {
-          auth: { accessToken }
-        } = store.getState();
-        return accessToken ? <PrivateComp {...routeProps} /> : <PublicComp {...routeProps} />;
-      }}
+      render={routeProps => (accessToken ? <PrivateComp {...routeProps} /> : <PublicComp {...routeProps} />)}
     />
   );
 }
 
 HybridRoute.propTypes = {
   privateComponent: elementType.isRequired,
-  publicComponent: elementType.isRequired
+  publicComponent: elementType.isRequired,
+  accessToken: string
 };
 
-export default withRouter(HybridRoute);
+HybridRoute.defaultProps = {
+  accessToken: ''
+};
+
+const mapStateToProps = state => ({
+  accessToken: state.auth.accessToken
+});
+
+export default connect(mapStateToProps, null)(withRouter(HybridRoute));
