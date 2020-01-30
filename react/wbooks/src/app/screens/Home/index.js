@@ -1,28 +1,32 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { func, array } from 'prop-types';
 
-import store from '../../../redux/store';
 import { actionCreators as booksActionsCreators } from '../../../redux/books/actions';
 
 import Home from './layout';
 
 class HomeContainer extends Component {
-  state = { books: { books: [] } };
-
   componentDidMount() {
-    this.unsubscribe = store.subscribe(() => {
-      const { books } = store.getState();
-      this.setState({ books });
-    });
-    store.dispatch(booksActionsCreators.getBooks());
-  }
-
-  componentWillUnmount() {
-    this.unsubscribe();
+    this.props.getBooks();
   }
 
   render() {
-    return <Home books={this.state.books.books} />;
+    return <Home books={this.props.books} />;
   }
 }
 
-export default HomeContainer;
+HomeContainer.propTypes = {
+  books: array.isRequired, // eslint-disable-line react/forbid-prop-types
+  getBooks: func.isRequired
+};
+
+const mapStateToProps = state => ({
+  books: state.books.books
+});
+
+const mapDispatchToProps = dispatch => ({
+  getBooks: () => dispatch(booksActionsCreators.getBooks())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);
