@@ -1,13 +1,6 @@
 import api from '../../app/config/api';
 
-export const getBooks = async ({ author, genre, title, description } = {}) => {
-  const response = await api.get('/books', { author, genre, title, description });
-
-  if (response.ok) {
-    console.log('okkkkkkkkk', response.data);
-    return response.data;
-  }
-  throw response;
-};
+export const getBooks = ({ author, genre, title, description } = {}) =>
+  api.get('/books', { author, genre, title, description });
 
 export const getBook = bookId => api.get(`/books/${bookId}`);

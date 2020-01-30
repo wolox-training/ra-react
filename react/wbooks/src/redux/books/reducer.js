@@ -14,10 +14,6 @@ const initialState = completeState(initialStateDescription);
 const reducerDescription = {
   primaryActions: [actions.GET_BOOK, actions.GET_BOOKS],
   override: {
-    [actions.ADD_BOOKS]: (state, action) => {
-      console.log('bbbbbbbbbbbbbbbbbbbbbb');
-      return { ...state, books: action.payload };
-    },
     [actions.REMOVE_BOOK]: state => ({ ...state, book: {} })
   }
 };
