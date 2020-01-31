@@ -1,39 +1,28 @@
+import { createTypes, completeTypes } from 'redux-recompose';
+
 import { getBooks, getBook } from '../../services/Book/service';
 
-export const actions = {
-  ADD_BOOKS: '@@BOOKS/ADD_BOOKS',
-  GET_BOOKS: '@@BOOKS/GET_BOOKS',
-  ADD_BOOK: '@@BOOKS/ADD_BOOK',
-  GET_BOOK: '@@BOOKS/GET_BOOK',
-  REMOVE_BOOK: '@@BOOKS/REMOVE_BOOK'
-};
+import { bookSerializer } from './serializers';
+import { BOOKS, BOOK } from './constants';
 
-export default {
-  addBooks: books => ({
-    type: actions.ADD_BOOKS,
-    payload: books
+export const actions = createTypes(completeTypes(['GET_BOOK', 'GET_BOOKS'], ['REMOVE_BOOK']), '@@BOOKS');
+
+export const actionCreators = {
+  getBooks: () => ({
+    type: actions.GET_BOOKS,
+    target: BOOKS,
+    service: getBooks,
+    successSelector: response => response.data
   }),
-  getBooks: () => async (dispatch, getState) => {
-    dispatch({ type: actions.GET_BOOKS });
-    const books = await getBooks(getState().auth.accessToken);
-    dispatch({
-      type: actions.ADD_BOOKS,
-      payload: books
-    });
-  },
-  addBook: book => ({
-    type: actions.ADD_BOOK,
-    payload: book
+  getBook: bookId => ({
+    type: actions.GET_BOOK,
+    target: BOOK,
+    service: getBook,
+    payload: bookId,
+    successSelector: response => bookSerializer.serialize(response.data)
   }),
-  getBook: bookId => async (dispatch, getState) => {
-    dispatch({ type: actions.GET_BOOKS });
-    const book = await getBook(getState().auth.accessToken, bookId);
-    dispatch({
-      type: actions.ADD_BOOK,
-      payload: book
-    });
-  },
   removeBook: () => ({
-    type: actions.REMOVE_BOOK
+    type: actions.REMOVE_BOOK,
+    target: BOOK
   })
 };

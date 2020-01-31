@@ -5,3 +5,9 @@ i18next.addResources('es', 'BookDetail', {
   editorial: 'Editorial',
   publicationYear: 'Año de publicación'
 });
+
+i18next.addResources('en', 'BookDetail', {
+  author: 'Book author',
+  editorial: 'Editorial',
+  publicationYear: 'Publication year'
+});
