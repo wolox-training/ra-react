@@ -42,8 +42,8 @@ AuthenticatedRoute.defaultProps = {
 };
 
 AuthenticatedRoute.propTypes = {
-  accessToken: string.isRequired,
   component: elementType.isRequired,
+  accessToken: string,
   isPublicRoute: bool
 };
 

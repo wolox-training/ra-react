@@ -13,9 +13,9 @@ function HybridRoute({ publicComponent: PublicComp, privateComponent: PrivateCom
 }
 
 HybridRoute.propTypes = {
-  accessToken: string.isRequired,
   privateComponent: elementType.isRequired,
-  publicComponent: elementType.isRequired
+  publicComponent: elementType.isRequired,
+  accessToken: string
 };
 
 const mapStateToProps = state => ({
