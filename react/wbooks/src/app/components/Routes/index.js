@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import authActionsCreators from '../../../redux/auth/actions';
+import { actionCreators as authActionsCreators } from '../../../redux/auth/actions';
 import { Routes } from '../../../constants';
 import SignUp from '../SignUp';
 import Login from '../Login';

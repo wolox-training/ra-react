@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import woloxLogoImage from '../../assets/wolox-logo.png';
 import { Routes } from '../../../constants';
 import store from '../../../redux/store';
-import authActionsCreators from '../../../redux/auth/actions';
+import { actionCreators as authActionsCreators } from '../../../redux/auth/actions';
 
 import styles from './styles.module.scss';
 import { LOGOUT } from './constants';
