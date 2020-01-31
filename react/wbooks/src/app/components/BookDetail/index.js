@@ -9,7 +9,8 @@ import BookDetail from './layout';
 class BookDetailContainer extends Component {
   componentDidMount() {
     const { id } = this.props.location.state;
-    this.props.getBook(id);
+    const { getBook } = this.props;
+    getBook(id);
   }
 
   render() {

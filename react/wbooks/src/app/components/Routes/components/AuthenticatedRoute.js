@@ -38,13 +38,12 @@ function AuthenticatedRoute({ isPublicRoute, component: Comp, accessToken, ...pr
 }
 
 AuthenticatedRoute.defaultProps = {
-  accessToken: '',
   isPublicRoute: false
 };
 
 AuthenticatedRoute.propTypes = {
+  accessToken: string.isRequired,
   component: elementType.isRequired,
-  accessToken: string,
   isPublicRoute: bool
 };
 
@@ -52,4 +51,4 @@ const mapStateToProps = state => ({
   accessToken: state.auth.accessToken
 });
 
-export default connect(mapStateToProps, null)(withRouter(AuthenticatedRoute));
+export default connect(mapStateToProps)(withRouter(AuthenticatedRoute));
