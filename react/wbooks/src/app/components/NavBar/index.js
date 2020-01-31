@@ -5,7 +5,7 @@ import { func } from 'prop-types';
 
 import woloxLogoImage from '../../assets/wolox-logo.png';
 import { Routes } from '../../../constants';
-import authActionsCreators from '../../../redux/auth/actions';
+import { actionCreators as authActionsCreators } from '../../../redux/auth/actions';
 
 import styles from './styles.module.scss';
 import { LOGOUT } from './constants';
