@@ -1,21 +1,18 @@
 import React from 'react';
 import { Redirect, Route, withRouter } from 'react-router-dom';
-import { bool, elementType } from 'prop-types';
+import { bool, elementType, string } from 'prop-types';
+import { connect } from 'react-redux';
 
 import { Routes } from '../../../../constants';
-import store from '../../../../redux/store';
 
 const DEFAULT_PUBLIC_ROUTE = Routes.LOGIN_AND_HOME;
 const DEFAULT_PRIVATE_ROUTE = Routes.LOGIN_AND_HOME;
 
-function AuthenticatedRoute({ isPublicRoute, component: Comp, ...props }) {
+function AuthenticatedRoute({ isPublicRoute, component: Comp, accessToken, ...props }) {
   return (
     <Route
       {...props}
       render={routeProps => {
-        const {
-          auth: { accessToken }
-        } = store.getState();
         if (isPublicRoute && accessToken) {
           return (
             <Redirect
@@ -46,7 +43,12 @@ AuthenticatedRoute.defaultProps = {
 
 AuthenticatedRoute.propTypes = {
   component: elementType.isRequired,
+  accessToken: string,
   isPublicRoute: bool
 };
 
-export default withRouter(AuthenticatedRoute);
+const mapStateToProps = state => ({
+  accessToken: state.auth.accessToken
+});
+
+export default connect(mapStateToProps)(withRouter(AuthenticatedRoute));
