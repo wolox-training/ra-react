@@ -9,6 +9,7 @@ import App from './App';
 configure({ adapter: new Adapter() });
 describe('App', () => {
   xit('renders without crashing', () => {
+    
   });
 
   xit('matches the snapshot', () => {
