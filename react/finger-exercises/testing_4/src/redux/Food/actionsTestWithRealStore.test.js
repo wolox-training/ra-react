@@ -38,7 +38,7 @@ describe('Test - Store + reducer integration testing with real store', () => {
   it('is not loading foods after retrieving info from the api', () =>
     // eslint-disable-next-line max-nested-callbacks
     store.dispatch(actionCreators.getFoods()).then(() => {
-      // Missing code here
+      expect(store.getState().foodsLoading).toBe(false);
     }));
 
   it('is loading foods after retrieving info from the api', () =>
