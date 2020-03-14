@@ -11,16 +11,20 @@ configure({ adapter: new Adapter() });
 describe('UserRow', () => {
   it('button change text when state is changed', () => {
     const wrapper = mount(<UserRow user={{ id:1, name: 'James', active: true }} />);
-    expect(wrapper.state('isActive')).toEqual(true);
     expect(wrapper.find('button').text()).toEqual('Desactivar');
     wrapper.setState({ isActive: false });
-    expect(wrapper.state('isActive')).toEqual(false);
     expect(wrapper.find('button').text()).toEqual('Activar');
   });
-  xit('button change text when clicked', () => {
+  it('button change text when clicked', () => {
     const wrapper = mount(<UserRow user={{ id:1, name: 'James', active: true }} />);
+    expect(wrapper.find('button').text()).toEqual('Desactivar');
+    wrapper.find('button').simulate('click');
+    expect(wrapper.find('button').text()).toEqual('Activar');
   });
-  xit('executing toggleActive method changes isActive state', () => {
-    const wrapper = mount(<UserRow user={{ id: 1, name: 'James', active: true }} />);
+  it('executing toggleActive method changes isActive state', () => {
+    const wrapper = mount(<UserRow user={{ id:1, name: 'James', active: true }} />);
+    expect(wrapper.state('isActive')).toEqual(true);
+    wrapper.instance().toggleActive();
+    expect(wrapper.state('isActive')).toEqual(false);
   });
 });
