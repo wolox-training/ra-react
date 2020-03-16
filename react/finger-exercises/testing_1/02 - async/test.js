@@ -1,13 +1,16 @@
 import getData from '.';
 
 describe('02 - async', () => {
-  xit('getData resolves the data if true is sent as argument (use async/await)', async () => {
-    getData();
+  it('getData resolves the data if true is sent as argument (use async/await)', async () => {
+    await expect(getData(true)).resolves.toBe('data');
   });
-  xit('getData resolves the data if true is sent as argument (avoid async/await)', () => {
+  it('getData resolves the data if true is sent as argument (avoid async/await)', () => {
+    return expect(getData(true)).resolves.toBe('data');
   });
-  xit('getData throws error if false is sent as argument (use async/await)', async () => {
+  it('getData throws error if false is sent as argument (use async/await)', async () => {
+    await expect(getData(false)).rejects.toThrow('error');
   });
-  xit('getData throws error if false is sent as argument (avoid async/await)', () => {
+  it('getData throws error if false is sent as argument (avoid async/await)', () => {
+    return expect(getData(false)).rejects.toThrow('error');
   });
 });

@@ -18,7 +18,7 @@ describe('Action --- Test async actions with mocked store', () => {
       // compare action types only (Forget about Payload)
       // eslint-disable-next-line max-nested-callbacks
       const actionTypes = store.getActions().map(action => action.type);
-      // Missing code here
+      expect(actionTypes).toEqual(expectedActions);
     });
   });
 });

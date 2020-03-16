@@ -8,13 +8,23 @@ import Dashboard from './index';
 
 configure({ adapter: new Adapter() });
 
+const consoleSpy = jest.spyOn(global.console, 'log');
+
 describe('Dashboard', () => {
-  xit('first h1 text should be "Welcome to React"', () => {
-    const wrapper = shallow(<Dashboard />);
+  beforeEach(() => {
+    jest.resetAllMocks();
   });
-  xit('parent of the logo should be a header', () => {
+
+  it('first h1 text should be "Welcome to React"', () => {
     const wrapper = shallow(<Dashboard />);
+    expect(wrapper.find('h1').at(0).text()).toEqual('Welcome to React');
   });
-  xit('componentDidMount is called once', () => {
+  it('parent of the logo should be a header', () => {
+    const wrapper = shallow(<Dashboard />);
+    expect(wrapper.find('img.App-logo').parent().is('header')).toEqual(true);
+  });
+  it('componentDidMount is called once', () => {
+    const wrapper = mount(<Dashboard />);
+    expect(consoleSpy).toHaveBeenCalledTimes(1);
   })
 });
